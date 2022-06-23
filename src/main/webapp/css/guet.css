@@ -254,7 +254,7 @@ div#neirong {
 .left1 a h1 {
     font-size: 15px;
     width: 220px;
-    margin: 0px 5px;
+    margin: 0 5px;
     line-height: 20px;
     height: 40px;
     text-align: center;
@@ -400,7 +400,7 @@ ul {
 }
 
 #f1 {
-    width: 371.188px;
+    width: 371px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -419,7 +419,7 @@ ul {
 }
 
 #f3 {
-    width: 281.594px;
+    width: 282px;
     height: 86px;
 }
 
