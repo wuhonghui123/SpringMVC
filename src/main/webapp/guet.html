@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="./css/guet.css"/>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script>
+        $(function (){
+            $.ajax({
+                type: "get",
+                url: "getUserPermission.do",
+                data: {"userId": sessionStorage.getItem("id")},
+                dataType: "json",
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="top">
+        <a class="logo float-l" href="guet.html"><img src="./image/logo.png" alt=""></a>
+        <div class="headtoolbar float-r">
+            <a href="#" class="a_style1">【校内主页】</a>
+            <a href="login.html" class="a_style1">【后台登录】</a>
+            <a href="#" class="a_style1">【智慧校园】</a>
+            <br>
+            <div class="sear">
+                <input type="text" class="sear_word" placeholder="查询关键字">
+                <input type="text" name="bottom" id="" class="sear_button">
+            </div>
+        </div>
+    </div>
+    <nav>
+        <ul class="first">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">学校简介</a>
+                <ul class="seconf second">
+                    <li><a href="#">现任校领导</a></li>
+                    <li><a href="#">历任书记校长</a></li>
+                    <li><a href="#">学校简介</a></li>
+                    <li><a href="#">历史沿革</a></li>
+                    <li><a href="#">校标、校训</a></li>
+                    <li><a href="#">校歌</a></li>
+                </ul>
+            </li>
+            <li><a href="#">机构设置</a>
+                <ul class="seconf second1">
+                    <li><a href="#">党群部门</a></li>
+                    <li><a href="#">行政管理部门</a></li>
+                    <li><a href="#">教学单位</a></li>
+                    <li><a href="#">其他机构</a></li>
+                    <li><a href="#">科研机构</a></li>
+                </ul>
+            </li>
+            <li><a href="#">师资队伍</a></li>
+            <li><a href="#">科学研究</a></li>
+            <li><a href="#">国际交流</a></li>
+            <li><a href="#">招生就业</a>
+                <ul class="seconf second2">
+                    <li><a href="#">毕业生就业网</a></li>
+                    <li><a href="#">招生信息网</a></li>
+                    <li><a href="#">研究生招生</a></li>
+                </ul>
+            </li>
+            <li><a href="#">北海校区</a></li>
+            <li><a href="#">一流专业</a></li>
+            <li><a href="#">诚聘英才</a></li>
+            <li><a href="#">人才培养</a>
+                <ul class="seconf second3">
+                    <li><a href="#">本科招生</a></li>
+                    <li><a href="#">本科教育</a></li>
+                    <li><a href="#">研究生教育</a></li>
+                    <li><a href="#">桂电信科院</a></li>
+                    <li><a href="#">专科招生</a></li>
+                    <li><a href="#">专科教育</a></li>
+                </ul>
+            </li>
+            <li><a href="#">常用链接</a>
+                <ul class="seconf second4">
+                    <li><a href="#">校外VPN访问</a></li>
+                    <li><a href="#">学报</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="loopimg">
+        <img src="./image/1.jpg" alt="" width="1280px" height="410px">
+<!--        轮播图-->
+    </div>
+    <div id="neirong">
+        <DIV class="left1">
+            <DIV class="con_tittle" id="con_tittle1">
+                <UL id="tabs1" class="tabs">
+                    <LI class="thistab"><A href="xwzx/gdyw.htm" target="_blank">理论热点</A></LI>
+                </UL>
+            </DIV>
+
+            <div class="left2">
+                <UL id="tab_conbox1">
+                    <LI class="new_imgtit" style="display: list-item">
+                        <a href="info/1161/58988.htm" target="_blank" title="庆祝中国共产主义青年团成立100周年大会在京隆重举行 习近平发表重要讲话">
+                            <img alt="" src="image/left1.png" width="221" height="141">
+                            <h1>庆祝中国共产主义青年团成立100周年大会在京隆重举行 习近平发表重要讲话</h1>
+                            <p>庆祝中国共产主义青年团成立100周年大会在京隆重举行习近平发表重要讲话李克强栗战书汪洋赵乐际韩正出席 王沪宁主持 新华社北京5月10日电
+                                庆祝中国共产主义青年团成立100周年大会10日上午在北京人民大会堂隆重举行。中共中央总书记、国家主席、中央军委主席习近平在会上发表重要讲话强调，青春孕育无限希望，青年创造美好明天。新时代的中国青年，生逢其时、重任在肩，施展才干的舞台无比广阔，实现梦想的前景无比光明。实现...</p>
+                        </a>
+                        <a href="info/1161/58899.htm" target="_blank" title="习近平：坚持党的领导传承红色基因扎根中国大地，走出一条建设中国特色世界一流大学新路">
+                            <img alt="" src="image/left2.jpg" width="221" height="141">
+                            <h1>习近平：坚持党的领导传承红色基因扎根中国大地，走出一条建设中国特色世界一流大学新路</h1>
+                            <p>
+                                在五四青年节即将到来之际，中共中央总书记、国家主席、中央军委主席习近平25日上午来到中国人民大学考察调研。习近平代表党中央，向全国各族青年致以节日的祝贺，向中国人民大学全体师生员工、向全国广大教育工作者和青年工作者致以诚挚的问候。习近平希望全国广大青年牢记党的教诲，立志民族复兴，不负韶华，不负时代，不负人民，在青春的赛道上奋力奔跑，争取跑出当代青年的最好成绩！习近平强调，“为谁培养人、培养什么人...</p>
+                        </a>
+                        <a href="info/1161/58789.htm" target="_blank"
+                           title="提高农业综合生产能力 推动社会保障事业高质量发展 ——习近平总书记在政协农业界、社会福利和社会保障界委员联组会上的重要讲话振奋人心">
+                            <img alt="" src="image/left3.jpg" width="221" height="141">
+                            <h1>提高农业综合生产能力 推动社会保障事业高质量发展 ——习近平总书记在政协农业界、社会福利和社会保障界委员联组会上的重要讲话振奋人心</h1>
+                            <p>​新华社北京3月6日电题：提高农业综合生产能力
+                                推动社会保障事业高质量发展——习近平总书记在政协农业界、社会福利和社会保障界委员联组会上的重要讲话振奋人心新华社记者“实施乡村振兴战略，必须把确保重要农产品特别是粮食供给作为首要任务，把提高农业综合生产能力放在更加突出的位置，把‘藏粮于地、藏粮于技’真正落实到位。要在推动社会保障事业高质量发展上持续用力，织密社会保障安全网，为人民生活安康托底。”习近...</p>
+                        </a>
+                    </LI>
+                </UL>
+            </div>
+        </DIV>
+        <Div class="left1" id="right1">
+            <div class="con_tittle" id="con_tittle2">
+                <UL id="tabs2" class="tabs">
+                    <LI class="thistab1"><A href="xwzx/gdxw.htm" target="_blank">桂电新闻</A></LI>
+                    <LI class="thistab1"><A href="xwzx/xykx.htm" target="_blank">校园快讯</A></LI>
+                    <LI class="thistab1"><A href="xwzx/xydt.htm" target="_blank">学院动态</A></LI>
+                    <LI class="thistab1"><A href="xwzx/mtgd.htm" target="_blank">媒体桂电</A></LI>
+                </UL>
+            </div>
+            <UL id="tab_conbox2" class="new_list">
+                <LI style="display: list-item">
+                    <a href="info/1151/59110.htm" target="_blank" title="《广西日报》刊发徐华蕊理论文章：进一步激发教育创新发展活力" target="_blank"><span>05-26</span><span> 《广西日报》刊发徐华蕊理论文章：进一步激发教育创新发展活力</span>
+                    </a>
+                    <a href="info/1151/59107.htm" target="_blank" title="徐华蕊校长会见广西财经学院校长夏飞一行(图）" target="_blank"><span>05-25</span><span> 徐华蕊校长会见广西财经学院校长夏飞一行(图）</span>
+                    </a>
+                    <a href="info/1151/59106.htm" target="_blank" title="唐平秋书记、徐华蕊校长拜访南宁市委主要领导（图）"
+                       target="_blank"><span>05-25</span><span> 唐平秋书记、徐华蕊校长拜访南宁市委主要领导（图）</span> </a>
+                    <a href="info/1151/59096.htm" target="_blank" title="桂电7项成果获2021年度广西科学技术奖（图）" target="_blank"><span>05-23</span><span> 桂电7项成果获2021年度广西科学技术奖（图）</span>
+                    </a>
+                    <a href="info/1151/59094.htm" target="_blank" title="孙立贤教授荣获广西2022年“最美科技工作者”称号（图）"
+                       target="_blank"><span>05-23</span><span> 孙立贤教授荣获广西2022年“最美科技工作者”称号（图）</span> </a>
+                    <a href="info/1151/59087.htm" target="_blank" title="学校召开第五届教职工暨第四届工会会员代表大会第四次会议（图）"
+                       target="_blank"><span>05-20</span><span> 学校召开第五届教职工暨第四届工会会员代表大会第四次会议（图）</span> </a>
+                    <a href="info/1151/59085.htm" target="_blank" title="【访企拓岗促就业】校领导带队到北海市开展“访企拓岗促就业”专项行动(图）"
+                       target="_blank"><span>05-20</span><span> 【访企拓岗促就业】校领导带队到北海市开展“访企拓岗促就业”专项行动(图）</span> </a>
+                    <a href="info/1151/59080.htm" target="_blank" title="学校主动对接北海经济社会发展，打造一流电子人才智库(图）"
+                       target="_blank"><span>05-20</span><span> 学校主动对接北海经济社会发展，打造一流电子人才智库(图）</span> </a>
+                    <a href="info/1151/59077.htm" target="_blank"
+                       title="【学习习近平重要讲话精神】习近平“庆祝建团百年重要讲话”精神宣讲：唐平秋书记为北海校区学生讲授“形势与政策”课(图）"
+                       target="_blank"><span>05-19</span><span> 【学习习近平重要讲话精神】习近平“庆祝建团百年重要讲话”精神宣讲：唐平秋书记为北海校区学生讲授“形势与政策”课(图）</span>
+                    </a>
+                    <a href="info/1151/59071.htm" target="_blank"
+                       title="【学习习近平重要讲话精神】校党委常委会专题传达学习习近平总书记在庆祝中国共产主义青年团成立100周年大会上的重要讲话精神"
+                       target="_blank"><span>05-19</span><span> 【学习习近平重要讲话精神】校党委常委会专题传达学习习近平总书记在庆祝中国共产主义青年团成立100周年大会上的重要讲话精神</span>
+                    </a>
+                    <a href="info/1151/59064.htm" target="_blank" title="【乡村振兴】校领导赴定点帮扶村开展乡村振兴工作(图)"
+                       target="_blank"><span>05-18</span><span> 【乡村振兴】校领导赴定点帮扶村开展乡村振兴工作(图)</span> </a>
+                    <a href="info/1151/59062.htm" target="_blank" title="广西唯一！我校留学生荣获2021“汉语桥”全球外国人汉语大会三等奖（图）"
+                       target="_blank"><span>05-17</span><span> 广西唯一！我校留学生荣获2021“汉语桥”全球外国人汉语大会三等奖（图）</span> </a>
+                </LI>
+                <li style="display: none">
+                    <!--#begineditable clone="0" namechanged="0" order="6" ispublic="0" tagname="校园快讯1" viewid="160245" contentviewid="" contype="" stylesysid="" layout="" action="" name="校园快讯"-->
+                    <a href="https://www.guet.edu.cn/info/1152/59042.htm" target="_blank"
+                       title="【科技前沿】第24期:高效边缘计算-通信联合管控技术研究进展"><span>05-16</span><span>
+                            【科技前沿】第24期:高效边缘计算-通信联合管控技术研究进展</span> </a>
+                    <a href="#" target="_blank" title="【科技前沿】第23期:紧间距方向图修正的天线去耦技术研究新进展"><span>05-09</span><span>
+                            【科技前沿】第23期:紧间距方向图修正的天线去耦技术研究新进展</span> </a>
+                    <a href="#" target="_blank" title="【科技前沿】第22期:数据中心数据任务调度与故障处理关键问题研究进展"><span>04-25</span><span>
+                            【科技前沿】第22期:数据中心数据任务调度与故障处理关键问题研究进展</span> </a>
+                    <a href="#" target="_blank" title="【我为师生办实事】我校召开教学-学工联席会议"><span>05-31</span><span>
+                            【我为师生办实事】我校召开教学-学工联席会议</span> </a>
+                    <a href="#" target="_blank" title="学校召开桂电南宁研究院师生入驻工作推进会"><span>06-02</span><span>
+                            学校召开桂电南宁研究院师生入驻工作推进会</span> </a>
+                    <a href="#" target="_blank" title="孙保燕教授在2022年中国-东盟智能建造产教融合高质量发展论坛作主题演讲"><span>06-01</span><span>
+                            孙保燕教授在2022年中国-东盟智能建造产教融合高质量发展论坛作主题演讲</span> </a>
+                    <a href="#" target="_blank" title="后勤处开展“全国城市节水宣传周”系列宣传活动"><span>06-01</span><span>
+                            后勤处开展“全国城市节水宣传周”系列宣传活动</span> </a>
+                    <a href="#" target="_blank"
+                       title="【我为师生办实事】学生工作部（处）联合图书馆举行学生社区第一期“悦读书，阅成长”读书沙龙"><span>06-01</span><span>
+                            【我为师生办实事】学生工作部（处）联合图书馆举行学生社区第一期“悦读书，阅成长”读书沙龙</span> </a>
+                    <a href="#" target="_blank" title="我校举行第十届“挑战杯”广西大学生创业计划竞赛校内总决赛"><span>05-31</span><span>
+                            我校举行第十届“挑战杯”广西大学生创业计划竞赛校内总决赛</span> </a>
+                    <a href="#" target="_blank" title="校纪委书记梁启谈为纪检审计党支部上专题党课"><span>05-31</span><span>
+                            校纪委书记梁启谈为纪检审计党支部上专题党课</span> </a>
+                    <a href="#" target="_blank" title="自治区教育厅民教处蒋国平处长一行到桂电中学调研指导工作"><span>05-31</span><span>
+                            自治区教育厅民教处蒋国平处长一行到桂电中学调研指导工作</span> </a>
+                    <a href="#" target="_blank" title="我校举办2022年硕士研究生导师遴选培训会"><span>05-31</span><span>
+                            我校举办2022年硕士研究生导师遴选培训会</span> </a>
+                    <script>_showDynClickBatch(['dynclicks_u9_59042', 'dynclicks_u9_58968', 'dynclicks_u9_58883', 'dynclicks_u9_59141', 'dynclicks_u9_59156', 'dynclicks_u9_59152', 'dynclicks_u9_59151', 'dynclicks_u9_59148', 'dynclicks_u9_59140', 'dynclicks_u9_59137', 'dynclicks_u9_59133', 'dynclicks_u9_59132'], [59042, 58968, 58883, 59141, 59156, 59152, 59151, 59148, 59140, 59137, 59133, 59132], "wbnews", 1403602354)</script>
+                    <!--#endeditable-->
+                </li>
+                <li style="display: none">
+                    <!--#begineditable clone="0" namechanged="0" order="7" ispublic="0" tagname="学院动态" viewid="160205" contentviewid="" contype="" stylesysid="" layout="" action="" name="学院动态"-->
+                    <a href="https://www.guet.edu.cn/info/1154/59150.htm" target="_blank"
+                       title="【我为师生办实事】数学与计算科学学院召开2022届毕业生人才培养工作系列座谈会"><span>06-01</span><span>
+                            【我为师生办实事】数学与计算科学学院召开2022届毕业生人才培养工作系列座谈会</span> </a>
+                    <a href="#" target="_blank" title="【我为师生办实事】外国语学院召开留桂就业宣讲会"><span>06-01</span><span>
+                            【我为师生办实事】外国语学院召开留桂就业宣讲会</span> </a>
+                    <a href="#" target="_blank" title="【我为师生办实事】机电工程学院赴柳州开展“访企拓岗促就业”专项行动"><span>06-01</span><span>
+                            【我为师生办实事】机电工程学院赴柳州开展“访企拓岗促就业”专项行动</span> </a>
+                    <a href="#" target="_blank" title="【我为师生办实事】法学院召开学生代表座谈会"><span>06-01</span><span>
+                            【我为师生办实事】法学院召开学生代表座谈会</span> </a>
+                    <a href="#" target="_blank" title="马克思主义学院举行研究生青年宣讲团聘任仪式"><span>06-01</span><span>
+                            马克思主义学院举行研究生青年宣讲团聘任仪式</span> </a>
+                    <a href="#" target="_blank" title="【我为师生办实事】光电工程学院举办专业认知导论线上专题讲座暨家长交流会"><span>06-01</span><span>
+                            【我为师生办实事】光电工程学院举办专业认知导论线上专题讲座暨家长交流会</span> </a>
+                    <a href="#" target="_blank" title="【我为师生办实事】外国语学院开展毕业生交流座谈会"><span>06-01</span><span>
+                            【我为师生办实事】外国语学院开展毕业生交流座谈会</span> </a>
+                    <a href="#" target="_blank" title="马克思主义学院党委赴兴安县兴安镇举办“党建聚力，校地共建”结对项目签约仪式"><span>05-31</span><span>
+                            马克思主义学院党委赴兴安县兴安镇举办“党建聚力，校地共建”结对项目签约仪式</span> </a>
+                    <a href="#" target="_blank" title="人工智能学院举行“2020级本科生科研项目（URP）”计划 启动仪式"><span>05-31</span><span>
+                            人工智能学院举行“2020级本科生科研项目（URP）”计划 启动仪式</span> </a>
+                    <a href="#" target="_blank" title="数字经济学院、材料科学与工程学院召开“中国-东盟数字能源实验室”建设推进座谈会"><span>05-30</span><span>
+                            数字经济学院、材料科学与工程学院召开“中国-东盟数字能源实验室”建设推进座谈会</span> </a>
+                    <a href="#" target="_blank" title="商学院举行2021年度国家奖学金获奖学生事迹宣讲会"><span>05-30</span><span>
+                            商学院举行2021年度国家奖学金获奖学生事迹宣讲会</span> </a>
+                    <a href="#" target="_blank" title="电子工程与自动化学院聘请企业导师指导学生毕业论文"><span>05-30</span><span>
+                            电子工程与自动化学院聘请企业导师指导学生毕业论文</span> </a>
+                    <script>_showDynClickBatch(['dynclicks_u10_59150', 'dynclicks_u10_59149', 'dynclicks_u10_59147', 'dynclicks_u10_59146', 'dynclicks_u10_59145', 'dynclicks_u10_59144', 'dynclicks_u10_59142', 'dynclicks_u10_59136', 'dynclicks_u10_59135', 'dynclicks_u10_59129', 'dynclicks_u10_59128', 'dynclicks_u10_59125'], [59150, 59149, 59147, 59146, 59145, 59144, 59142, 59136, 59135, 59129, 59128, 59125], "wbnews", 1403602354)</script>
+                    <!--#endeditable-->
+                </li>
+                <li style="display: none">
+                    <!--#begineditable clone="0" namechanged="0" order="8" ispublic="0" tagname="媒体桂电" viewid="160204" contentviewid="" contype="" stylesysid="" layout="" action="" name="媒体桂电"-->
+                    <a href="https://www.guet.edu.cn/info/1153/59126.htm" target="_blank"
+                       title="学习强国【理论前沿】：进一步激发教育创新发展活力"><span>05-30</span><span> 学习强国【理论前沿】：进一步激发教育创新发展活力</span> </a>
+                    <a href="#" target="_blank" title="校长徐华蕊在广西日报发表理论文章：进一步激发教育创新发展活力"><span>05-26</span><span>
+                            校长徐华蕊在广西日报发表理论文章：进一步激发教育创新发展活力</span> </a>
+                    <a href="#" target="_blank" title="人民网：桂林电子科技大学学子暖心救助被撞老人"><span>05-20</span><span>
+                            人民网：桂林电子科技大学学子暖心救助被撞老人</span> </a>
+                    <a href="#" target="_blank" title="中国教育在线：​桂林电子科技大学学子深夜救助受伤老人"><span>05-20</span><span>
+                            中国教育在线：​桂林电子科技大学学子深夜救助受伤老人</span> </a>
+                    <a href="#" target="_blank" title="广西日报客户端：点赞！收到家属感谢信大家才知道他曾在深夜救助受伤老人"><span>05-20</span><span>
+                            广西日报客户端：点赞！收到家属感谢信大家才知道他曾在深夜救助受伤老人</span> </a>
+                    <a href="#" target="_blank" title="光明日报刊登我校马克思主义学院教师邓国峰理论文章：坚持维护国家安全不动摇"><span>05-19</span><span>
+                            光明日报刊登我校马克思主义学院教师邓国峰理论文章：坚持维护国家安全不动摇</span> </a>
+                    <a href="#" target="_blank"
+                       title="广西青年圈：有责任有担当，青春才会闪光｜广西各界青少年热议习近平总书记在庆祝中国共产主义青年团成立100周年大会上的重要讲话（三）"><span>05-18</span><span>
+                            广西青年圈：有责任有担当，青春才会闪光｜广西各界青少年热议习近平总书记在庆祝中国共产主义青年团成立100周年大会上的重要讲话（三）</span> </a>
+                    <a href="#" target="_blank" title="学习强国：桂林电子科技大学多措并举全力打造新时代劳动教育"
+                       style="color:#000000;"><span>05-13</span><span> 学习强国：桂林电子科技大学多措并举全力打造新时代劳动教育</span> </a>
+                    <a href="#" target="_blank" title="中国青年报：让“西迁精神”代代相传"><span>05-13</span><span>
+                            中国青年报：让“西迁精神”代代相传</span> </a>
+                    <a href="#" target="_blank"
+                       title="八桂教育：以青春之我 投身民族复兴伟业——广西高校师生热议习近平总书记在庆祝中国共产主义青年团成立100周年大会上的重要讲话精神"><span>05-12</span><span>
+                            八桂教育：以青春之我 投身民族复兴伟业——广西高校师生热议习近平总书记在庆祝中国共产主义青年团成立100周年大会上的重要讲话精神</span> </a>
+                    <a href="#" target="_blank" title="广西日报客户端：桂林电子科技大学多措并举，全力打造新时代劳动教育"><span>05-12</span><span>
+                            广西日报客户端：桂林电子科技大学多措并举，全力打造新时代劳动教育</span> </a>
+                    <a href="#" target="_blank"
+                       title="桂林电视台：习近平在庆祝中国共产主义青年团成立100周年大会上的讲话在我市引发热烈反响"><span>05-11</span><span>
+                            桂林电视台：习近平在庆祝中国共产主义青年团成立100周年大会上的讲话在我市引发热烈反响</span> </a>
+                    <script>_showDynClickBatch(['dynclicks_u11_59126', 'dynclicks_u11_59109', 'dynclicks_u11_59086', 'dynclicks_u11_59081', 'dynclicks_u11_59079', 'dynclicks_u11_59075', 'dynclicks_u11_59069', 'dynclicks_u11_59019', 'dynclicks_u11_59018', 'dynclicks_u11_59000', 'dynclicks_u11_58999', 'dynclicks_u11_58991'], [59126, 59109, 59086, 59081, 59079, 59075, 59069, 59019, 59018, 59000, 58999, 58991], "wbnews", 1403602354)</script>
+                    <!--#endeditable-->
+                </li>
+            </ul>
+        </Div>
+        <div class="left1" id="ceshi">
+            <div class="notice float-l margintop15">
+                <div class="con_tittle" id="con_tittle3">
+                    <ul id="tabs3" class="tabs">
+                        <li class="thistab3"><a href="xwzx/tzgg.htm" target="_blank">通知公告</a></li>
+                        <li class="thistab3"><a href="xwzx/zbgs.htm" target="_blank">招标公示</a></li>
+                    </ul>
+                </div>
+                <ul id="tab_conboxNotice" class="new_list">
+                    <li id="category_8">
+                        <a href="info/1155/58818.htm" target="_blank" title="桂林电子科技大学2022年高层次人才招聘公告"
+                           style="font-weight:bold;color:#ff0015;"><span style="color: #428bca">●&nbsp;04-08</span>桂林电子科技大学2022年高层次人才招聘公告</a>
+                        <a href="info/1155/59111.htm" target="_blank" title="桂林电子科技大学2022年第一批临时聘用人员招聘拟聘人员公示"><span
+                                style="color: #428bca">●&nbsp;05-26</span>桂林电子科技大学2022年第一批临时聘用人员招聘拟聘人员公示</a>
+                        <a href="info/1155/59084.htm" target="_blank" title="桂林电子科技大学2022年体育部专任教师（硕士研究生）招聘拟聘人员公示"><span
+                                style="color: #428bca">●&nbsp;05-20</span>桂林电子科技大学2022年体育部专任教师（硕士研究生）招聘拟聘人员公示</a>
+                        <a href="info/1155/59029.htm" target="_blank" title="桂林电子科技大学2022年校医院医务工作人员招聘公告"><span
+                                style="color: #428bca">●&nbsp;05-15</span>桂林电子科技大学2022年校医院医务工作人员招聘公告</a>
+                        <a href="info/1155/59022.htm" target="_blank" title="桂林电子科技大学2022年第一批临时聘用人员招聘面试成绩及考核公示"><span
+                                style="color: #428bca">●&nbsp;05-13</span>桂林电子科技大学2022年第一批临时聘用人员招聘面试成绩及考核公示</a>
+                        <a href="info/1155/59001.htm" target="_blank" title="桂林电子科技大学2022年第一批临时聘用人员招聘笔试成绩公布及面试公告"><span
+                                style="color: #428bca">●&nbsp;05-12</span>桂林电子科技大学2022年第一批临时聘用人员招聘笔试成绩公布及面试公告</a>
+                        <a href="info/1155/58973.htm" target="_blank" title="桂林电子科技大学2022年第一批临时聘用人员招聘笔试面试公告"><span
+                                style="color: #428bca">●&nbsp;05-09</span>桂林电子科技大学2022年第一批临时聘用人员招聘笔试面试公告</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="left1" id="ceshi2">
+            <div class="activity float-r margintop15 ">
+                <div class="con_tittle" id="con_tittle4">
+                    <p class="con_tittle_l float-l">学术活动
+                        <a class="con_tittle_r float-r" href="xwzx/xshd.htm" target="_blank"
+                           style="margin-left: 480px;">更多&gt;&gt;</a>
+                    </p>
+                </div>
+                <ul id="category_9">
+                    <li>
+                        <a href="info/1157/59058.htm" target="_blank" title="关于举办桂林电子科技大学第七期学术沙龙主题报告会的预告">
+                            <img alt="" src="image/41.jpg" width="52" height="52">
+                            <span class="activity_text">关于举办桂林电子科技大学第七期学术沙龙主题报告会的预告<br>
+                                    时间：2022年5月20日（周五）19:30-21:30 &nbsp;&nbsp; 地点：百悦酒店两广馆会议室 </span>
+                        </a>
+                    </li>
+                    <li><a href="info/1157/59026.htm" target="_blank" title="关于国家自然科学基金委员会科研诚信建设办公室陈克勋副处长报告会的预告"><img
+                            alt="" src="image/42.jpg" width="52" height="52"> <span class="activity_text">关于国家自然科学基金委员会科研诚信建设办公室陈克勋副处长报告会的预告<br>
+                        时间：2022年5月16日（周一）下午15:00 &nbsp;&nbsp; 地点：腾讯会议号：681-679-679 </span></a>
+                    </li>
+                    <li><a href="info/1157/58979.htm" target="_blank" title="关于宾洋教授报告会的预告"><img alt=""
+                                                                                                src="image/43.jpg"
+                                                                                                width="52" height="52">
+                        <span class="activity_text">关于宾洋教授报告会的预告<br>
+                        时间：2022年5月12日（周四）晚上19:00-20:30 &nbsp;&nbsp; 地点：腾讯会议号：700-349-686 </span></a>
+                    </li>
+                </ul>
+            </div>
+        </DIV>
+        <DIV class="left1" id="ceshi3" style="height:210px;">
+            <DIV class="con_tittle" id="con_tittle5">
+                <P class="con_tittle_l float-l " style="margin-bottom:15px;">专题网站</P>
+            </DIV>
+            <table align="center" style="width:100%;margin-top:10px;">
+                <tr>
+                    <td align="center">
+                        <a href="https://www.guet.edu.cn/wmxy" title="全国文明校园建设网" class="c205763"
+                           onclick="_addDynClicks(&#34;wbimage&#34;, 1403602354, 34388)" target="_blank"
+                           style="width:25%;margin-left:5px;text-decoration: none;">
+                            <img src="image/wenmingxiaoyuan.jpg" border="0" style="width:100%;"><br>
+                            <span style="font-size:16px;height: 20px;line-height: 20px; overflow: hidden;text-align: center;">全国文明校园建设网</span>
+                        </a>
+                    </td>
+                    <td align="center">
+                        <a href="http://guet.websol.cn/" title="桂林电子科技大学党建成果网上展馆" class="c205763"
+                           onclick="_addDynClicks(&#34;wbimage&#34;, 1403602354, 34387)" target="_blank"
+                           style="width:25%;margin-left:5px;text-decoration: none;">
+                            <img src="image/00000001.png" border="0" style="width:100%;"><br>
+                            <span style="font-size:16px;height: 20px;line-height: 20px; overflow: hidden;text-align: center;">桂林电子科技大学党建成果网上展馆</span>
+                        </a>
+                    </td>
+                    <td align="center">
+                        <a href="http://gldz.cbpt.cnki.net/WKD/WebPublication/index.aspx?mid=GLDZ" title="学报"
+                           class="c205763" onclick="_addDynClicks(&#34;wbimage&#34;, 1403602354, 34386)" target="_blank"
+                           style="width:25%;margin-left:5px;text-decoration: none;">
+                            <img src="image/xuebao.jpg" border="0" style="width:100%;"><br>
+                            <span style="font-size:16px;height: 20px;line-height: 20px; overflow: hidden;text-align: center;">学报</span>
+                        </a>
+                    </td>
+                    <td align="center">
+                        <a href="#" title="专题" class="c205763"
+                           onclick="_addDynClicks(&#34;wbimage&#34;, 1403602354, 29123)" target="_blank"
+                           style="width:25%;margin-left:5px;">
+                            <img src="image/guet-img_30.png" border="0" title="专题" style="width:100%"><br>
+                            <span style="font-size:16px;height: 20px;line-height: 20px; overflow: hidden;text-align: center;">专题 </span>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </DIV>
+
+
+        <DIV class="left1" id="ceshi4" style="margin-top:30px;height:160px;">
+            <!--这里是底部链接-->
+            <div class="float-l" id="f1">
+                <a href="https://www.guet.edu.cn">
+                    <!--#begineditable name="底图校徽图片" action="webber.wbst.com.image.ColumnImage" layout="/system/_component/columnimage/tplimagelist.jsp" tpltype="1" contype="image" clone="" viewid="205759" contentviewid="" tagname="底图校徽图片"-->
+                    <img src="image/bottomLogon3.png" alt="" style="height:120px;text-align: center;">
+                    <!--#endeditable--></a>
+            </div>
+            <div class="float-l" id="f2">
+                <!--#begineditable name="文字链接" action="webber.wbst.com.url.ColumnUrl" layout="/system/_component/columnurl/tpllinklist.jsp" tpltype="1" contype="url" clone="" viewid="205761" contentviewid="" tagname="文字链接"-->
+                <table style="width:100%">
+                    <tr>
+                        <td width="50%" style="padding-left:16px">
+                            <li style="list-style: none;"><a href="https://v.guet.edu.cn/login" title="校外VPN访问"
+                                                             onclick="_addDynClicks(&#34;wburl&#34;, 1403602354, 39740)"
+                                                             style="font-size: 14px;line-height: 2;">校外VPN访问</a></li>
+
+                            <li style="list-style: none;"><a href="https://www.guet.edu.cn/pubinfo/" title="信息公开网"
+                                                             onclick="_addDynClicks(&#34;wburl&#34;, 1403602354, 39741)"
+                                                             style="font-size: 14px;line-height: 2;">信息公开网</a></li>
+
+                            <li style="list-style: none;"><a href="http://www.gxljxt.cn/" title="漓江学堂"
+                                                             onclick="_addDynClicks(&#34;wburl&#34;, 1403602354, 39743)"
+                                                             style="font-size: 14px;line-height: 2;">漓江学堂</a></li>
+
+                            <li style="list-style: none;"><a href="http://www.guet.edu.cn/Guet12388.htm" title="我要举报"
+                                                             onclick="_addDynClicks(&#34;wburl&#34;, 1403602354, 39742)"
+                                                             style="font-size: 14px;line-height: 2;">我要举报</a></li>
+
+                        </td>
+                    </tr>
+                </table><!--#endeditable-->
+
+            </div>
+            <div class="float-l" id="f3">
+                <table align="center">
+                    <tr>
+                        <td align="center">
+                            <a href="20141021175221_6207.jpg" title="官方微信" class="c205762"
+                               onclick="_addDynClicks(&#34;wbimage&#34;, 1403602354, 34385)" target="_blank"
+                               style="padding-left: 5px;    padding-right: 5px;">
+                                <img src="image/20210317145742.png" border="0" width="60" height="60"
+                                     style="text-align: center;"><br>
+                                <span style="font-size:12px;">官方微信 </span>
+                            </a>
+                        </td>
+                        <td align="center">
+                            <a href="https://weibo.com/p/1002062627166972/home?from=page_100206&mod=TAB&is_all=1#place"
+                               title="官方微博" class="c205762"
+                               onclick="_addDynClicks(&#34;wbimage&#34;, 1403602354, 34384)" target="_blank"
+                               style="padding-left: 5px;    padding-right: 5px;">
+                                <img src="image/20210317145757.png" border="0" width="60" height="60"><br>
+                                <span style="font-size:12px;">官方微博 </span>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!--这里是底部链接-->
+    </DIV>
+</DIV>
+</div>
+<DIV class="footerimg"></DIV>
+<DIV class="footer" style=" background: url(image/footer.png);">
+    <DIV class="footercenter"><SPAN style="width:730px;"><!--#begineditable clone="0" namechanged="0" order="14" ispublic="0" tagname="版权" viewid="160212" contentviewid="" contype="" stylesysid="" layout="" action="" name="版权"-->
+        <!-- 版权内容请在本组件"内容配置-版权"处填写 -->
+            <p>©版权所有：桂林电子科技大学　校址：中国广西桂林金鸡路1号　邮编：541004　传真：0773-2290083</p><p style="text-align: center;"><a
+                href="https://beian.miit.gov.cn/" target="_blank" style="text-align: center;">桂ICP备05000961号</a><span
+                style="text-align: center;">&nbsp; &nbsp; </span><a target="_blank"
+                                                                    href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=45030502000232"
+                                                                    style="text-align: center; display: inline-block; text-decoration-line: none; height: 20px; line-height: 20px;"><img
+                src="image/DC0A46FC5B15B3363FFA78CF6C7_C267B386_4B38.png"/>桂公网安备45030502000232号</a>&nbsp;<span
+                style="text-align: center;">&nbsp;</span><a href="https://www.12377.cn/" target="_blank"
+                                                            style="text-align: center;"><img
+                src="image/8D4DD8D7B96BC8B3E56B7FB57DE_B9ABC477_F3A.jpg" height="46" style=" height: 46px;"/></a>&nbsp;&nbsp;<span
+                style="text-align: center;">&nbsp;&nbsp;</span><a href="https://www.12377.cn/" target="_blank"
+                                                                  style="text-align: center;"><img
+                src="image/308826793639FC3BC199E7BD455_DDFAE15D_111B.jpg" height="46" style=" height: 46px;"/></a>&nbsp;&nbsp;<img
+                src="image/F6677E694248F73734AEF067FC0_B34A9234_8FF0.jpg" height="46" style=" height: 46px;"/></p>
+        <!--#endeditable--></SPAN><A class="blue_error"
+                                     href="http://bszs.conac.cn/sitename?method=show&amp;id=17A7818D2EE94AB9E053012819ACB5C4"
+                                     target="_blank"><IMG alt="" src="image/blue_error.png" width="80" height="80"> </A>
+    </DIV>
+</DIV>
+</body>
+</html>
