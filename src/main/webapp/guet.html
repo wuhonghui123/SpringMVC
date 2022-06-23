@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>桂林电子科技大学官网</title>
     <link type="text/css" rel="stylesheet" href="./css/guet.css"/>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script>
@@ -14,7 +14,58 @@
                 url: "newsList.do",
                 dataType: "json",
                 success: function (data){
-                    console.log(data);
+                    console.log(data)
+                    $.each(data, function (i, news){
+                        if(news.news_class === '理论热点'){
+                            console.log(news.title);
+                            var $a = $("<a href='"+news.url+"' target='_blank' title='"+news.title+"'>");
+                            var $img = $("<img alt= '' src='"+news.image+"' width='221' height='141'>");
+                            var $h1 = $("<h1>");
+                            var $p = $("<p>");
+                            $h1.append(news.title);
+                            $p.append(news.content);
+                            $a.append($img);
+                            $a.append($h1);
+                            $a.append($p)
+                            console.log($a);
+                            $(".new_imgtit").append($a);
+                        }
+                    })
+                    $.each(data, function (i, news){
+                        if(news.news_class === '桂电新闻'){
+
+                        }
+                    })
+                    $.each(data, function (i, news){
+                        if(news.news_class === '校园快讯'){
+
+                        }
+                    })
+                    $.each(data, function (i, news){
+                        if(news.news_class === '学院动态'){
+
+                        }
+                    })
+                    $.each(data, function (i, news){
+                        if(news.news_class === '媒体桂电'){
+
+                        }
+                    })
+                    $.each(data, function (i, news){
+                        if(news.news_class === '通知公告'){
+
+                        }
+                    })
+                    $.each(data, function (i, news){
+                        if(news.news_class === '招标公告'){
+
+                        }
+                    })
+                    $.each(data, function (i, news){
+                        if(news.news_class === '学术活动'){
+
+                        }
+                    })
                 }
             })
         })
