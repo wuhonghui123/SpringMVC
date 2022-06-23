@@ -29,7 +29,8 @@ public class NewsDaoImpl implements NewsDao {
                 News news = new News();
                 news.setNews_class(rs.getString("news_class"));
                 news.setNews_title(rs.getString("news_title"));
-                news.setNews_content(rs.getString("news_image"));
+                news.setNews_content(rs.getString("news_content"));
+                news.setNews_image(rs.getString("news_image"));
                 news.setUpdate_time(rs.getString("update_time"));
                 news.setNews_url(rs.getString("news_url"));
 
