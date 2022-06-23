@@ -433,13 +433,13 @@ ul {
 }
 
 .footerimg {
-    background: url(./image/content-footer.png) no-repeat bottom center;
+    background: url(../image/content-footer.png) no-repeat bottom center;
 }
 
 .footerimg {
     width: 100%; /*width:1920px;*/
     height: 466px;
-    background: url(image/content-footer.png);
+    background: url(../image/content-footer.png);
     position: absolute;
     top: 1510px;
     clear: both;
@@ -450,7 +450,7 @@ ul {
 .footer {
     width: 100%;
     height: 140px;
-    background: url(image/footer.png);
+    background: url(../image/footer.png);
     float: left;
     position: absolute;
     top: 1800px;
