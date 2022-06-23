@@ -80,7 +80,14 @@
                     })
                     $.each(data, function (i, news){
                         if(news.news_class === '通知公告'){
-
+                            var $a = $("<a href='"+news.news_url+"' target='_blank' title='"+news.news_title+"'>");
+                            var $span1 = $("<span style='color: #428bca'>");
+                            var $span2 = $("<span>");
+                            $span1.append(news.update_time);
+                            $span2.append(news.news_title);
+                            $a.append($span1);
+                            $a.append($span2);
+                            $(".news_list").append($a);
                         }
                     })
                     $.each(data, function (i, news){
@@ -214,21 +221,7 @@
                     </ul>
                 </div>
                 <ul id="tab_conboxNotice" class="new_list">
-                    <li id="category_8">
-                        <a href="info/1155/58818.htm" target="_blank" title="桂林电子科技大学2022年高层次人才招聘公告"
-                           style="font-weight:bold;color:#ff0015;"><span style="color: #428bca">●&nbsp;04-08</span>桂林电子科技大学2022年高层次人才招聘公告</a>
-                        <a href="info/1155/59111.htm" target="_blank" title="桂林电子科技大学2022年第一批临时聘用人员招聘拟聘人员公示"><span
-                                style="color: #428bca">●&nbsp;05-26</span>桂林电子科技大学2022年第一批临时聘用人员招聘拟聘人员公示</a>
-                        <a href="info/1155/59084.htm" target="_blank" title="桂林电子科技大学2022年体育部专任教师（硕士研究生）招聘拟聘人员公示"><span
-                                style="color: #428bca">●&nbsp;05-20</span>桂林电子科技大学2022年体育部专任教师（硕士研究生）招聘拟聘人员公示</a>
-                        <a href="info/1155/59029.htm" target="_blank" title="桂林电子科技大学2022年校医院医务工作人员招聘公告"><span
-                                style="color: #428bca">●&nbsp;05-15</span>桂林电子科技大学2022年校医院医务工作人员招聘公告</a>
-                        <a href="info/1155/59022.htm" target="_blank" title="桂林电子科技大学2022年第一批临时聘用人员招聘面试成绩及考核公示"><span
-                                style="color: #428bca">●&nbsp;05-13</span>桂林电子科技大学2022年第一批临时聘用人员招聘面试成绩及考核公示</a>
-                        <a href="info/1155/59001.htm" target="_blank" title="桂林电子科技大学2022年第一批临时聘用人员招聘笔试成绩公布及面试公告"><span
-                                style="color: #428bca">●&nbsp;05-12</span>桂林电子科技大学2022年第一批临时聘用人员招聘笔试成绩公布及面试公告</a>
-                        <a href="info/1155/58973.htm" target="_blank" title="桂林电子科技大学2022年第一批临时聘用人员招聘笔试面试公告"><span
-                                style="color: #428bca">●&nbsp;05-09</span>桂林电子科技大学2022年第一批临时聘用人员招聘笔试面试公告</a>
+                    <li id="category_8" class="news_list">
                     </li>
                 </ul>
             </div>
