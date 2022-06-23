@@ -394,6 +394,10 @@ ul {
     width: 1280px;
     float: left;
 }
+.float-li {
+    width: 620px;
+    float: left;
+}
 
 .float-r {
     float: right;
