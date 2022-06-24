@@ -111,7 +111,7 @@ public class UserDaoImpl implements IUserDao {
         String user = "root";// mysql的用户名
         String pwd = "123456";
         String url = "jdbc:mysql://127.0.0.1:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-        String sql = "select a.username,a.nick_name,a.email,a.mobile,a.create_time,c.role_name " +
+        String sql = "select a.userid,a.username,a.nick_name,a.email,a.mobile,a.create_time,c.role_name " +
                 "from users a,user_role b,role c " +
                 "where a.userid=b.user_id and b.role_id=c.role_id";
         PreparedStatement pstmt = null;

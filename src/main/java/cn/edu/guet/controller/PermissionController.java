@@ -17,4 +17,5 @@ public class PermissionController {
 
         return permissionService.permissionList();
     }
+
 }

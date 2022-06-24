@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>文章列表</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <style>
+        table{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        th,td{
+            border:1px solid black;
+        }
+    </style>
 </head>
 <body>
-角色列表
+<input type="text"><button>查询</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>新增</button>
+<table id="tb">
+    <caption>文章列表</caption>
+    <tr>
+        <th><input type="checkbox">全选</th>
+        <th>类别</th>
+        <th>标题</th>
+        <th>上传时间</th>
+        <th>路径</th>
+        <th>操作</th>
+    </tr>
+</table>
+<script>
+    $.ajax({
+        type: "GET",
+        url: "newsList.do",
+        dataType: "json",
+        success: function (data) {
+            console.log('服务器返回的数据：',data);
+            $.each(data,function(index,news){
+                var $tr=$("<tr>" +
+                    "<td><input type='checkbox'></td>"+
+                    "<td>"+news.news_class+"</td>"+
+                    "<td>"+news.news_title+"</td>"+
+                    "<td>"+news.update_time+"</td>"+
+                    "<td>"+news.news_url+"</td>"+
+                    "<td><a href='#'>编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#'>删除</a></td>"+
+                    "</tr>");
+                $("#tb").append($tr);
+            })
+        }
+    });
+</script>
 </body>
 </html>

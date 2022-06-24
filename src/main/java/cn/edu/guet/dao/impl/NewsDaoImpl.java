@@ -1,7 +1,6 @@
 package cn.edu.guet.dao.impl;
 
 import cn.edu.guet.bean.News;
-import cn.edu.guet.bean.Permission;
 import cn.edu.guet.dao.NewsDao;
 
 import java.sql.*;

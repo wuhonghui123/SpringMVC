@@ -1,13 +1,10 @@
 package cn.edu.guet.controller;
 
 import cn.edu.guet.bean.News;
-import cn.edu.guet.bean.Permission;
 import cn.edu.guet.mvc.annotation.Controller;
 import cn.edu.guet.mvc.annotation.RequestMapping;
-import cn.edu.guet.service.IPermissionService;
 import cn.edu.guet.service.NewsService;
 import cn.edu.guet.service.impl.NewsServiceImpl;
-import cn.edu.guet.service.impl.PermissionServiceImpl;
 import cn.edu.guet.util.WangEditor;
 import com.google.gson.Gson;
 import org.apache.commons.fileupload.FileItem;
@@ -94,6 +91,7 @@ public class NewsController {
 
     @RequestMapping("/newsList")//读取数据库中的新闻信息转发到网页
     public List<News> newsList() {
+        System.out.println("获取所有文章");
         NewsService newsService = new NewsServiceImpl();
         return newsService.newsList();
     }
