@@ -7,6 +7,7 @@
     <title>桂林电子科技大学官网</title>
     <link type="text/css" rel="stylesheet" href="./css/guet.css"/>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="./js/toggle.js"></script>
     <script>
         $(function (){
             $.ajax({
@@ -214,22 +215,24 @@
         <Div class="left1" id="right1">
             <div class="con_tittle" id="con_tittle2">
                 <UL id="tabs2" class="tabs">
-                    <LI class="thistab1"><A href="xwzx/gdxw.htm" target="_blank">桂电新闻</A></LI>
-                    <LI class="thistab1"><A href="xwzx/xykx.htm" target="_blank">校园快讯</A></LI>
-                    <LI class="thistab1"><A href="xwzx/xydt.htm" target="_blank">学院动态</A></LI>
-                    <LI class="thistab1"><A href="xwzx/mtgd.htm" target="_blank">媒体桂电</A></LI>
+                    <LI class="thistab1 "><A href="xwzx/gdxw.htm" target="_blank" id="guetnews1">桂电新闻</A></LI>
+                    <LI class="thistab1 "><A href="xwzx/xykx.htm" target="_blank" id="schoolnews1">校园快讯</A></LI>
+                    <LI class="thistab1 "><A href="xwzx/xydt.htm" target="_blank" id="collegenews1">学院动态</A></LI>
+                    <LI class="thistab1 "><A href="xwzx/mtgd.htm" target="_blank" id="mediaguet1">媒体桂电</A></LI>
                 </UL>
             </div>
+            <div>
             <UL id="tab_conbox2" class="new_list">
-                <LI class="guetnews" style="display: list-item">
+                <LI class="guetnews" style="display: none">
                 </LI>
-                <li  class="schoolnews" style="display: none">
+                <li  class="schoolnews" style="display: list-item">
                 </li>
                 <li class="collegenews" style="display: none">
                 </li>
                 <li class="mediaguet" style="display: none">
                 </li>
             </ul>
+                </div>
         </Div>
         <div class="left1" id="ceshi">
             <div class="notice float-l margintop15">

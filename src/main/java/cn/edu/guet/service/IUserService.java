@@ -8,4 +8,5 @@ import java.util.List;
 public interface IUserService {
     User login(String username, String password);
     List<Permission> getMenuByUserId(String userId);
+    List<User> getUserList();
 }

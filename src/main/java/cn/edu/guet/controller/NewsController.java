@@ -94,7 +94,6 @@ public class NewsController {
 
     @RequestMapping("/newsList")//读取数据库中的新闻信息转发到网页
     public List<News> newsList() {
-        System.out.println("获取所有的文章信息");
         NewsService newsService = new NewsServiceImpl();
         return newsService.newsList();
     }

@@ -20,4 +20,10 @@ public class UserServiceImpl implements IUserService {
         IUserDao userDao = new UserDaoImpl();
         return userDao.getMenuByUserId(userId);
     }
+
+    @Override
+    public List<User> getUserList() {
+        IUserDao userDao = new UserDaoImpl();
+        return userDao.getUserList();
+    }
 }

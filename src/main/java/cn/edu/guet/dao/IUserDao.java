@@ -10,4 +10,5 @@ public interface IUserDao {
 
     User login(String username, String password);
     List<Permission> getMenuByUserId(String userId);
+    List<User> getUserList();
 }

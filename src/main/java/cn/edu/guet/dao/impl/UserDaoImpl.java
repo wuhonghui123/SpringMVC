@@ -102,4 +102,50 @@ public class UserDaoImpl implements IUserDao {
         }
         return permissionList;//返回集合（把装满芒果的麻袋，扛到车上）
     }
+
+
+    //获取用户列表
+    @Override
+    public List<User> getUserList() {
+        Connection conn = null;
+        String user = "root";// mysql的用户名
+        String pwd = "123456";
+        String url = "jdbc:mysql://127.0.0.1:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        String sql = "select a.username,a.nick_name,a.email,a.mobile,a.create_time,c.role_name " +
+                "from users a,user_role b,role c " +
+                "where a.userid=b.user_id and b.role_id=c.role_id";
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        List<User> UserList=new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(url, user, pwd);
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            // rs.next：游标向下移动
+            while(rs.next()){
+                User user1 = new User();
+                user1.setUsername(rs.getString("username"));
+                user1.setNickName(rs.getString("nick_name"));
+                user1.setEmail(rs.getString("email"));
+                user1.setMobile(rs.getString("mobile"));
+                user1.setCreatetime(rs.getString("create_time"));
+                user1.setRolename(rs.getString("role_name"));
+
+                UserList.add(user1);//把芒果放入麻袋
+                System.out.println(user1);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                rs.close();
+                pstmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return UserList;//返回集合（把装满芒果的麻袋，扛到车上）
+    }
 }

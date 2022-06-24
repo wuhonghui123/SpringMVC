@@ -2,9 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>用户列表</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <style>
+        table{
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+        th,td{
+            border:1px solid black;
+        }
+    </style>
 </head>
 <body>
-用户列表
+<input type="text"><button>查询</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>新增</button>
+<table id="tb">
+    <caption>用户列表</caption>
+    <tr>
+        <th>账号</th>
+        <th>昵称</th>
+        <th>角色</th>
+        <th>邮箱</th>
+        <th>手机</th>
+        <th>注册时间</th>
+    </tr>
+</table>
+<script>
+    $.ajax({
+        type: "GET",
+        url: "userList.do",
+        dataType: "json",
+        success: function (data) {
+            console.log('服务器返回的数据：',data);
+            $.each(data,function(index,users){
+                var $tr=$("<tr>" +
+                    "<td>"+users.username+"</td>"+
+                    "<td>"+users.nick_name+"</td>"+
+                    "<td>"+users.role_name+"</td>"+
+                    "<td>"+users.email+"</td>"+
+                    "<td>"+users.mobile+"</td>"+
+                    "<td>"+users.create_time+"</td>"+
+                    "<td><a href='#'>修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#'>删除</a></td>"+
+                    "</tr>");
+                $("#tb").append($tr);
+            })
+        }
+    });
+</script>
 </body>
 </html>
