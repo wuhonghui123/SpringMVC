@@ -1,6 +1,7 @@
 package cn.edu.guet.dao.impl;
 
 import cn.edu.guet.bean.Permission;
+import cn.edu.guet.bean.Role;
 import cn.edu.guet.bean.User;
 import cn.edu.guet.dao.IUserDao;
 import cn.edu.guet.util.PasswordEncoder;
@@ -148,4 +149,10 @@ public class UserDaoImpl implements IUserDao {
         }
         return UserList;//返回集合（把装满芒果的麻袋，扛到车上）
     }
+
+    @Override
+    public List<Role> getRoleList() {
+        return null;
+    }
+
 }
