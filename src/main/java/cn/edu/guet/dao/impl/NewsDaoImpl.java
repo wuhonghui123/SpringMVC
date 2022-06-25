@@ -13,7 +13,7 @@ public class NewsDaoImpl implements NewsDao {
         Connection conn = null;
         String user = "root";// mysql的用户名
         String pwd = "123456";
-        String url = "jdbc:mysql://127.0.0.1:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        String url = "jdbc:mysql://120.25.164.209:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
         String sql = "SELECT * FROM news ORDER BY update_time DESC LIMIT 0,1000";
         PreparedStatement pstmt = null;
         ResultSet rs = null;

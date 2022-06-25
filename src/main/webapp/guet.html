@@ -8,6 +8,7 @@
     <link type="text/css" rel="stylesheet" href="./css/guet.css"/>
     <script src="./js/jquery.js"></script>
     <script src="./js/toggle.js"></script>
+
     <script>
         $(function (){
             $.ajax({
@@ -47,7 +48,6 @@
                             $a.append($span2);
                             $(".guetnews").append($a);
                             b = b + 1;
-                            console.log(b);
                         }
                     })
                     let c = 0;
@@ -106,18 +106,24 @@
                             $span2.append(news.news_title);
                             $a.append($span1);
                             $a.append($span2);
-                            $(".news_list").append($a);
+                            $(".news_list1").append($a);
                             f = f + 1;
                         }
                     })
+                    let g = 0;
                     $.each(data, function (i, news){
-                        if(news.news_class === '招标公告'){
-
-                        }
-                    })
-                    $.each(data, function (i, news){
-                        if(news.news_class === '学术活动'){
-
+                        if(g === 7) return false;// 限制次数跳出循环
+                        if(news.news_class === '招标公示'){
+                            var $a = $("<a href='"+news.news_url+"' target='_blank' title='"+news.news_title+"'>");
+                            var $span1 = $("<span style='color: #428bca'>");
+                            var $span2 = $("<span>");
+                            $span1.append(news.update_time);
+                            $span2.append(news.news_title);
+                            $a.append($span1);
+                            $a.append($span2);
+                            $(".news_list2").append($a);
+                            g = g + 1;
+                            console.log(g);
                         }
                     })
                 }
@@ -215,21 +221,21 @@
         <Div class="left1" id="right1">
             <div class="con_tittle" id="con_tittle2">
                 <UL id="tabs2" class="tabs">
-                    <LI class="thistab1 "><A href="xwzx/gdxw.htm" target="_blank" id="guetnews1">桂电新闻</A></LI>
-                    <LI class="thistab1 "><A href="xwzx/xykx.htm" target="_blank" id="schoolnews1">校园快讯</A></LI>
-                    <LI class="thistab1 "><A href="xwzx/xydt.htm" target="_blank" id="collegenews1">学院动态</A></LI>
-                    <LI class="thistab1 "><A href="xwzx/mtgd.htm" target="_blank" id="mediaguet1">媒体桂电</A></LI>
+                    <LI class="thistab1 "><A href="xwzx/gdxw.htm" target="_blank" onmouseover=f1()>桂电新闻</A></LI>
+                    <LI class="thistab1 "><A href="xwzx/xykx.htm" target="_blank" onmouseover=f2()>校园快讯</A></LI>
+                    <LI class="thistab1 "><A href="xwzx/xydt.htm" target="_blank" onmouseover=f3()>学院动态</A></LI>
+                    <LI class="thistab1 "><A href="xwzx/mtgd.htm" target="_blank" onmouseover=f4()>媒体桂电</A></LI>
                 </UL>
             </div>
             <div>
             <UL id="tab_conbox2" class="new_list">
-                <LI class="guetnews" style="display: none">
+                <LI class="guetnews" id="guetnews" style="display: list-item">
                 </LI>
-                <li  class="schoolnews" style="display: list-item">
+                <li  class="schoolnews" id="schoolnews" style="display: none">
                 </li>
-                <li class="collegenews" style="display: none">
+                <li class="collegenews" id="collegenews" style="display: none">
                 </li>
-                <li class="mediaguet" style="display: none">
+                <li class="mediaguet" id="mediaguet" style="display: none">
                 </li>
             </ul>
                 </div>
@@ -238,12 +244,14 @@
             <div class="notice float-l margintop15">
                 <div class="con_tittle" id="con_tittle3">
                     <ul id="tabs3" class="tabs">
-                        <li class="thistab3"><a href="xwzx/tzgg.htm" target="_blank">通知公告</a></li>
-                        <li class="thistab3"><a href="xwzx/zbgs.htm" target="_blank">招标公示</a></li>
+                        <li class="thistab3"><a href="xwzx/tzgg.htm" target="_blank" onmouseover=f5()>通知公告</a></li>
+                        <li class="thistab3"><a href="xwzx/zbgs.htm" target="_blank" onmouseover=f6()>招标公示</a></li>
                     </ul>
                 </div>
                 <ul id="tab_conboxNotice" class="new_list">
-                    <li id="category_8" class="news_list">
+                    <li id="category_8" class="news_list1" style="display: list-item">
+                    </li>
+                    <li id="category_10" class="news_list2" style="display: none">
                     </li>
                 </ul>
             </div>

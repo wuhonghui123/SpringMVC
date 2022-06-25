@@ -16,7 +16,7 @@ public class UserDaoImpl implements IUserDao {
         Connection conn = null;
         String user = "root";// mysql的用户名
         String pwd = "123456";
-        String url = "jdbc:mysql://127.0.0.1:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        String url = "jdbc:mysql://120.25.164.209:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
         String sql = "SELECT userid,nick_name,password,salt FROM users WHERE username=?";
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -62,7 +62,7 @@ public class UserDaoImpl implements IUserDao {
         Connection conn = null;
         String user = "root";// mysql的用户名
         String pwd = "123456";
-        String url = "jdbc:mysql://127.0.0.1:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        String url = "jdbc:mysql://120.25.164.209:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
         String sql = "SELECT p.*\n" +
                 "FROM user_role ur,role_permission rp,permission p\n" +
                 "WHERE ur.role_id=rp.role_id\n" +
@@ -111,7 +111,7 @@ public class UserDaoImpl implements IUserDao {
         Connection conn = null;
         String user = "root";// mysql的用户名
         String pwd = "123456";
-        String url = "jdbc:mysql://127.0.0.1:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        String url = "jdbc:mysql://120.25.164.209:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
         String sql = "select a.userid,a.username,a.nick_name,a.email,a.mobile,a.create_time,c.role_name " +
                 "from users a,user_role b,role c " +
                 "where a.userid=b.user_id and b.role_id=c.role_id";

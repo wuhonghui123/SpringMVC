@@ -23,9 +23,9 @@ public class DBConnection {
 			in = Class.forName("cn.edu.guet.util.DBConnection").getResourceAsStream("/db.properties");
 			prop.load(in);
 
-			String url = prop.getProperty("url");
-			Class.forName(prop.getProperty("driver"));// 加载驱动
-			Connection conn = DriverManager.getConnection(url, prop.getProperty("user"), prop.getProperty("password"));
+			String url = prop.getProperty("jdbc:mysql://127.0.0.1:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true");
+			Class.forName(prop.getProperty("com.mysql.cj.jdbc.Driver"));// 加载驱动
+			Connection conn = DriverManager.getConnection(url, prop.getProperty("root"), prop.getProperty("123456"));
 			return conn;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
