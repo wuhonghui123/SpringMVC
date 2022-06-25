@@ -42,7 +42,7 @@
                             var $a = $("<a href='"+news.news_url+"' target='_blank' title='"+news.news_title+"' target='_blank'>");
                             var $span1 = $("<span>");
                             var $span2 = $("<span>");
-                            $span1.append(news.update_time);
+                            $span1.append(news.update_time.substring(6,10)+"&nbsp;&nbsp;");
                             $span2.append(news.news_title);
                             $a.append($span1);
                             $a.append($span2);
@@ -57,7 +57,7 @@
                             var $a = $("<a href='"+news.news_url+"' target='_blank' title='"+news.news_title+"' target='_blank'>");
                             var $span1 = $("<span>");
                             var $span2 = $("<span>");
-                            $span1.append(news.update_time);
+                            $span1.append(news.update_time.substring(6,10)+"&nbsp;&nbsp;");
                             $span2.append(news.news_title);
                             $a.append($span1);
                             $a.append($span2);
@@ -72,7 +72,7 @@
                             var $a = $("<a href='"+news.news_url+"' target='_blank' title='"+news.news_title+"' target='_blank'>");
                             var $span1 = $("<span>");
                             var $span2 = $("<span>");
-                            $span1.append(news.update_time);
+                            $span1.append(news.update_time.substring(6,10)+"&nbsp;&nbsp;");
                             $span2.append(news.news_title);
                             $a.append($span1);
                             $a.append($span2);
@@ -87,7 +87,7 @@
                             var $a = $("<a href='"+news.news_url+"' target='_blank' title='"+news.news_title+"' target='_blank'>");
                             var $span1 = $("<span>");
                             var $span2 = $("<span>");
-                            $span1.append(news.update_time);
+                            $span1.append(news.update_time.substring(6,10)+"&nbsp;&nbsp;");
                             $span2.append(news.news_title);
                             $a.append($span1);
                             $a.append($span2);
@@ -102,7 +102,7 @@
                             var $a = $("<a href='"+news.news_url+"' target='_blank' title='"+news.news_title+"'>");
                             var $span1 = $("<span style='color: #428bca'>");
                             var $span2 = $("<span>");
-                            $span1.append(news.update_time);
+                            $span1.append("●&nbsp;"+news.update_time.substring(6,10)+"&nbsp;&nbsp;");
                             $span2.append(news.news_title);
                             $a.append($span1);
                             $a.append($span2);
@@ -117,7 +117,7 @@
                             var $a = $("<a href='"+news.news_url+"' target='_blank' title='"+news.news_title+"'>");
                             var $span1 = $("<span style='color: #428bca'>");
                             var $span2 = $("<span>");
-                            $span1.append(news.update_time);
+                            $span1.append("●&nbsp;"+news.update_time.substring(6,10)+"&nbsp;&nbsp;");
                             $span2.append(news.news_title);
                             $a.append($span1);
                             $a.append($span2);
