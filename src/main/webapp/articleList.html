@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>文章列表</title>
     <script src="./js/jquery.js"></script>
+    <script src="./ckeditor/ckeditor.js"></script>
     <style>
         table{
             border:1px solid black;
@@ -13,10 +14,37 @@
         th,td{
             border:1px solid black;
         }
+        #title{
+            width: 500px;
+        }
+        #under {
+            position: absolute;
+            z-index: -1;
+        }
+
+        #above,#above1 {
+            list-style: none;
+            opacity: 1;
+            z-index: 2;
+            display: none;
+            background-color: #ffffff;
+            margin: auto auto;
+            width: 1000px;
+            height: 400px;
+            border-radius: 5px;
+            padding: 100px 50px;
+            position: relative;
+        }
+
+        .form-wrapper {
+            left: 50%;
+            top: 50%;
+        }
     </style>
 </head>
 <body>
-<input type="text"><button>查询</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>新增</button>
+<div id="under">
+<input type="text"><button>查询</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick=f1()>新增</button>
 <table id="tb">
     <caption>文章列表</caption>
     <tr>
@@ -28,7 +56,41 @@
         <th>操&nbsp;&nbsp;作</th>
     </tr>
 </table>
+</div>
+
+<div class="container">
+    <div id="above">
+        <div class="form-wrapper">
+            <form method="post" action="job/add">
+                文章类别：
+                <select name="classification" id="classification">
+                    <option value="理论热点" selected>理论热点</option>
+                    <option value="桂电新闻">桂电新闻</option>
+                    <option value="校园快讯">校园快讯</option>
+                    <option value="学院动态">学院动态</option>
+                    <option value="媒体桂电">媒体桂电</option>
+                    <option value="通知公告">通知公告</option>
+                    <option value="招标公示">招标公示</option>
+                </select>
+                标题：<input type="text" name="title" id="title"/>
+                <br/><textarea name="description" id="description"/>1</textarea>
+                <input type="submit" id="save" onclick="adduser()"/>
+                <button id="cancel" onclick="f2()">取消</button>
+            </form>
+        </div>
+    </div>
+    <div id="above1">
+        <div class="form-wrapper">
+            <button id="save2" onclick="updateuser()">保存</button>
+            <button id="cancel2" onclick="f2()">取消</button>
+        </div>
+    </div>
+</div>
 <script>
+    window.onload = function()
+    {
+        CKEDITOR.replace( 'description');
+    };
     $.ajax({
         type: "GET",
         url: "newsList.do",
@@ -48,6 +110,19 @@
             })
         }
     });
+
+    function empty() {
+    }
+
+    function f1() {
+        document.getElementById("above").style.display = 'list-item';
+    }
+
+    function f2() {
+        document.getElementById("above").style.display = 'none';
+        document.getElementById("above1").style.display = 'none';
+        empty();
+    }
 </script>
 </body>
 </html>

@@ -20,7 +20,7 @@
 <table id="tb">
     <caption>权限数据</caption>
     <tr>
-        <th><input type="checkbox">全选</th>
+        <th>菜单ID</th>
         <th>菜单名称</th>
         <th>菜单地址</th>
         <th>菜单图标</th>
@@ -36,11 +36,11 @@
             console.log('服务器返回的数据：',data);
             $.each(data,function(index,menu){
                 var $tr=$("<tr>" +
-                    "<td><input type='checkbox'></td>"+
+                    "<td>"+menu.id+"</td>"+
                     "<td>"+menu.name+"</td>"+
                     "<td>"+menu.url+"</td>"+
                     "<td>"+menu.icon+"</td>"+
-                    "<td><a href='#'>修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#'>删除</a></td>"+
+                    "<td><input type='button' id='update' value='修改' />&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='delect' value='删除' /></td>" +
                     "</tr>");
                 $("#tb").append($tr);
             })
