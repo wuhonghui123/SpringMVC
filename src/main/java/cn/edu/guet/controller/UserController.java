@@ -51,5 +51,16 @@ public class UserController {
         System.out.println("删除用户成功"+username);
         return a&&b;
     }
-
+    @RequestMapping("/updateuser")
+    public boolean updateuser(String userid,String username,String nickname,String rolename,String email,String mobile){
+        User user = new User();
+        user.setId(userid);
+        user.setUsername(username);
+        user.setNickName(nickname);
+        user.setRolename(rolename);
+        user.setEmail(email);
+        user.setMobile(mobile);
+        IUserService userService = new UserServiceImpl();
+        return userService.updateuser(user);
+    }
 }

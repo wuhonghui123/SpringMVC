@@ -11,4 +11,5 @@ public interface IUserService {
     List<User> getUserList();
     boolean adduser(User user);
     boolean deleteuser(String username);
+    boolean updateuser(User user);
 }

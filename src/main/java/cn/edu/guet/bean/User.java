@@ -10,8 +10,18 @@ public class User {
     private String mobile;
     private String createtime;
     private String rolename;
+
+    private String roleid;
     private String salt;
     private String password;
+    public String getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(String roleid) {
+        this.roleid = roleid;
+    }
+
 
     public String getSalt() {
         return salt;

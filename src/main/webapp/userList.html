@@ -20,7 +20,7 @@
             z-index: -1;
         }
 
-        #above {
+        #above,#above1 {
             list-style: none;
             opacity: 1;
             z-index: 2;
@@ -56,6 +56,7 @@
     <table id="tb">
         <caption>用户列表</caption>
         <tr>
+            <th>I&nbsp;&nbsp;D</th>
             <th>账&nbsp;&nbsp;号</th>
             <th>昵&nbsp;&nbsp;称</th>
             <th>角&nbsp;&nbsp;色</th>
@@ -91,6 +92,30 @@
             <button id="cancel" onclick="f2()">取消</button>
         </div>
     </div>
+    <div id="above1">
+        <div class="form-wrapper">
+            <label >ID：</label>
+            <label id="userid"></label>
+            <br/>
+            <label for="username">账号：</label>
+            <input type="text" name="username" id="username1">
+            <br/>
+            <label for="nickname">昵称：</label>
+            <input type="text" name="nickname" id="nickname1">
+            <br/>
+            <label for="rolename">角色：</label>
+            <input type="text" name="rolename" id="rolename1">
+            <br/>
+            <label for="email">邮箱：</label>
+            <input type="text" name="email" id="email1">
+            <br/>
+            <label for="mobile">手机：</label>
+            <input type="text" name="mobile" id="mobile1" value="">
+            <br/>
+            <button id="save2" onclick="updateuser()">保存</button>
+            <button id="cancel2" onclick="f2()">取消</button>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -101,6 +126,11 @@
         document.getElementById("email").value = "";
         document.getElementById("mobile").value = "";
         document.getElementById("password").value = "";
+        document.getElementById("username1").value = "";
+        document.getElementById("nickname1").value = "";
+        document.getElementById("rolename1").value = "";
+        document.getElementById("email1").value = "";
+        document.getElementById("mobile1").value = "";
     }
 
     function f1() {
@@ -109,6 +139,7 @@
 
     function f2() {
         document.getElementById("above").style.display = 'none';
+        document.getElementById("above1").style.display = 'none';
         empty();
     }
 
@@ -142,8 +173,33 @@
         empty();
     }
 
-    function f3() {
+    function updateuser(){
+        var username = document.getElementById("username1").value;
+        var nickname = document.getElementById("nickname1").value;
+        var rolename = document.getElementById("rolename1").value;
+        var email = document.getElementById("email1").value;
+        var mobile = document.getElementById("mobile1").value;
+        var userid = $("#userid").text();
+        $.ajax({
+            type: "GET",
+            url: "updateuser.do",
+            data: {
+                "userid":userid,
+                "username": username,
+                "nickname": nickname,
+                "rolename": rolename,
+                "email": email,
+                "mobile": mobile
+            },
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+                alert(result);
 
+            }
+        })
+        document.getElementById("above1").style.display = 'none';
+        empty();
     }
 
     $.ajax({
@@ -154,6 +210,7 @@
             console.log('服务器返回的数据：', data);
             $.each(data, function (index, users) {
                 var $tr = $("<tr>" +
+                    "<td>" + users.id + "</td>" +
                     "<td>" + users.username + "</td>" +
                     "<td>" + users.nickName + "</td>" +
                     "<td>" + users.rolename + "</td>" +
@@ -184,13 +241,13 @@
     });
     $(function () {
         $("#tb").on("click", "#update", function (event) {
-            document.getElementById("username").value=$(this).closest("tr").find("td").eq(0).text();
-            document.getElementById("nickname").value=$(this).closest("tr").find("td").eq(1).text();
-            document.getElementById("rolename").value=$(this).closest("tr").find("td").eq(2).text();
-            document.getElementById("email").value=$(this).closest("tr").find("td").eq(3).text();
-            document.getElementById("mobile").value=$(this).closest("tr").find("td").eq(4).text();
-            document.getElementById("password").value=null;
-            f1();
+            $("#userid").append($(this).closest("tr").find("td").eq(0).text())
+            document.getElementById("username1").value=$(this).closest("tr").find("td").eq(1).text();
+            document.getElementById("nickname1").value=$(this).closest("tr").find("td").eq(2).text();
+            document.getElementById("rolename1").value=$(this).closest("tr").find("td").eq(3).text();
+            document.getElementById("email1").value=$(this).closest("tr").find("td").eq(4).text();
+            document.getElementById("mobile1").value=$(this).closest("tr").find("td").eq(5).text();
+            document.getElementById("above1").style.display = 'list-item';
         });
     });
 </script>

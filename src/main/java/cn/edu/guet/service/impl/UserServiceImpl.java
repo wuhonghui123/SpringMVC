@@ -44,4 +44,12 @@ public class UserServiceImpl implements IUserService {
         IUserDao userDao = new UserDaoImpl();
         return userDao.deleteuser(username);
     }
+
+    @Override
+    public boolean updateuser(User user) {
+        IUserDao userDao = new UserDaoImpl();
+        String roleid = userDao.getroleid(user.getRolename());
+        user.setRoleid(roleid);
+        return userDao.updateuser(user);
+    }
 }
