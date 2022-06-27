@@ -39,7 +39,7 @@ public class UserController {
         RoleService roleService = new RoleServiceImpl();
         boolean a = userService.adduser(user);
         roleService.adduserrole(user);
-        System.out.println("控制器:"+user);
+        System.out.println("添加用户成功:"+user);
         return a;
     }
     @RequestMapping("/deleteuser")
@@ -48,6 +48,7 @@ public class UserController {
         boolean a = roleService.deleteuserrole(username);
         IUserService userService = new UserServiceImpl();
         boolean b = userService.deleteuser(username);
+        System.out.println("删除用户成功"+username);
         return a&&b;
     }
 

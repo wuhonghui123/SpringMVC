@@ -33,22 +33,20 @@ public class RoleDaoImpl implements RoleDao {
 
     @Override
     public boolean deleteuserrole(String username) {
-        System.out.println("DAO层:"+username);
         Connection conn = null;
         String root = "root";// mysql的用户名
         String pwd = "123456";
         String url = "jdbc:mysql://120.25.164.209:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
         String sql = "DELETE FROM user_role WHERE user_id in (SELECT userid FROM users WHERE username = '" + username + "');";
-        System.out.println(sql);
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(url, root, pwd);
             Statement s = conn.createStatement();
-            s.executeUpdate(sql);
+            int row = s.executeUpdate(sql);
             //6. 关闭连接，释放资源
             conn.close();
             s.close();
-            return true;
+            return row!=0;
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }

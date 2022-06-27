@@ -36,7 +36,6 @@ public class UserServiceImpl implements IUserService {
     @Override
     public boolean adduser(User user) {
         IUserDao userDao = new UserDaoImpl();
-        System.out.println("服务层:"+user);
         return userDao.adduser(user);
     }
 

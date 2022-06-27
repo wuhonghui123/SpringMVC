@@ -15,7 +15,6 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public boolean deleteuserrole(String username) {
-        System.out.println("服务层:"+username);
         RoleDao roleDao = new RoleDaoImpl();
         return roleDao.deleteuserrole(username);
     }

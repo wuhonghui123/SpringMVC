@@ -21,7 +21,7 @@
         }
 
         #above {
-            list-style:none;
+            list-style: none;
             opacity: 1;
             z-index: 2;
             display: none;
@@ -73,7 +73,7 @@
             <input type="text" name="username" id="username">
             <br/>
             <label for="mobile">密码：</label>
-            <input type="text" name="password" id="password" >
+            <input type="text" name="password" id="password">
             <br/>
             <label for="nickname">昵称：</label>
             <input type="text" name="nickname" id="nickname">
@@ -94,17 +94,19 @@
 </div>
 
 <script>
-    function empty(){
-        document.getElementById("username").value="";
-        document.getElementById("nickname").value="";
-        document.getElementById("rolename").value="";
-        document.getElementById("email").value="";
-        document.getElementById("mobile").value="";
-        document.getElementById("password").value="";
+    function empty() {
+        document.getElementById("username").value = "";
+        document.getElementById("nickname").value = "";
+        document.getElementById("rolename").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("mobile").value = "";
+        document.getElementById("password").value = "";
     }
+
     function f1() {
         document.getElementById("above").style.display = 'list-item';
     }
+
     function f2() {
         document.getElementById("above").style.display = 'none';
         empty();
@@ -120,10 +122,17 @@
         console.log(nickname);
         $.ajax({
             type: "GET",
-            url:"Adduser.do",
-            data:{"username":username, "password":password,"nickname":nickname,"rolename":rolename,"email":email,"mobile":mobile},
+            url: "Adduser.do",
+            data: {
+                "username": username,
+                "password": password,
+                "nickname": nickname,
+                "rolename": rolename,
+                "email": email,
+                "mobile": mobile
+            },
             dataType: "json",
-            success:function (result){
+            success: function (result) {
                 console.log(result);
                 alert(result);
 
@@ -132,7 +141,8 @@
         document.getElementById("above").style.display = 'none';
         empty();
     }
-    function f3(){
+
+    function f3() {
 
     }
 
@@ -150,14 +160,14 @@
                     "<td>" + users.email + "</td>" +
                     "<td>" + users.mobile + "</td>" +
                     "<td>" + users.createtime + "</td>" +
-                    "<td><input type='button' value='修改' />&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' value='删除' /></td>" +
+                    "<td><input type='button' id='update' value='修改' />&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='delect' value='删除' /></td>" +
                     "</tr>");
                 $("#tb").append($tr);
             })
         }
     });
-    $(function() {
-        $("#tb").on("click", ":button", function(event) {
+    $(function () {
+        $("#tb").on("click", "#delect", function (event) {
             var username = $(this).closest("tr").find("td").eq(0).text();
             console.log(username);
             $.ajax({
@@ -169,8 +179,19 @@
                     console.log(result);
                     alert(result);
                 }
+            });
         });
     });
+    $(function () {
+        $("#tb").on("click", "#update", function (event) {
+            document.getElementById("username").value=$(this).closest("tr").find("td").eq(0).text();
+            document.getElementById("nickname").value=$(this).closest("tr").find("td").eq(1).text();
+            document.getElementById("rolename").value=$(this).closest("tr").find("td").eq(2).text();
+            document.getElementById("email").value=$(this).closest("tr").find("td").eq(3).text();
+            document.getElementById("mobile").value=$(this).closest("tr").find("td").eq(4).text();
+            document.getElementById("password").value=null;
+            f1();
+        });
     });
 </script>
 </body>
