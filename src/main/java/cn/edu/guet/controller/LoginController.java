@@ -17,9 +17,7 @@ public class LoginController {
 
         IUserService userService=new UserServiceImpl();
 
-        User user=userService.login(username,password);
-
-        return user;// 返回的JSON数据
+        return userService.login(username,password);// 返回的JSON数据
     }
     @RequestMapping("/getUserPermission")// 相当于之前在web.xml中的url-pattern的内容
     public List<Permission> getUserPermission(String userId){

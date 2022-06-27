@@ -5,50 +5,172 @@
     <title>用户列表</title>
     <script src="./js/jquery.js"></script>
     <style>
-        table{
-            border:1px solid black;
+        table {
+            border: 1px solid black;
             border-collapse: collapse;
             width: 100%;
         }
-        th,td{
-            border:1px solid black;
+
+        th, td {
+            border: 1px solid black;
         }
+
+        #under {
+            position: absolute;
+            z-index: -1;
+        }
+
+        #above {
+            list-style:none;
+            opacity: 1;
+            z-index: 2;
+            display: none;
+            background-color: #9b9595;
+            margin: auto auto;
+            width: 358px;
+            border-radius: 5px;
+            padding: 100px 50px;
+            position: relative;
+        }
+
+        .form-wrapper {
+            left: 50%;
+            top: 50%;
+        }
+
+        /*.container {*/
+        /*    opacity: 0.5;*/
+        /*    z-index: 1;*/
+        /*    height: 100%;*/
+        /*    width: 100%;*/
+        /*    background-color: #595656;*/
+        /*}*/
     </style>
 </head>
 <body>
-<input type="text"><button>查询</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>新增</button>
-<table id="tb">
-    <caption>用户列表</caption>
-    <tr>
-        <th>账&nbsp;&nbsp;号</th>
-        <th>昵&nbsp;&nbsp;称</th>
-        <th>角&nbsp;&nbsp;色</th>
-        <th>邮&nbsp;&nbsp;箱</th>
-        <th>手&nbsp;&nbsp;机</th>
-        <th>注册时间</th>
-        <th>操作</th>
-    </tr>
-</table>
+<div id="under">
+    <label>
+        <input type="text">
+        <button>查询</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick=f1()>新增</button>
+    </label>
+    <table id="tb">
+        <caption>用户列表</caption>
+        <tr>
+            <th>账&nbsp;&nbsp;号</th>
+            <th>昵&nbsp;&nbsp;称</th>
+            <th>角&nbsp;&nbsp;色</th>
+            <th>邮&nbsp;&nbsp;箱</th>
+            <th>手&nbsp;&nbsp;机</th>
+            <th>注册时间</th>
+            <th>操作</th>
+        </tr>
+    </table>
+</div>
+<div class="container">
+    <div id="above">
+        <div class="form-wrapper">
+            <label for="username">账号：</label>
+            <input type="text" name="username" id="username">
+            <br/>
+            <label for="mobile">密码：</label>
+            <input type="text" name="password" id="password" >
+            <br/>
+            <label for="nickname">昵称：</label>
+            <input type="text" name="nickname" id="nickname">
+            <br/>
+            <label for="rolename">角色：</label>
+            <input type="text" name="rolename" id="rolename">
+            <br/>
+            <label for="email">邮箱：</label>
+            <input type="text" name="email" id="email">
+            <br/>
+            <label for="mobile">手机：</label>
+            <input type="text" name="mobile" id="mobile" value="">
+            <br/>
+            <button id="save" onclick="adduser()">保存</button>
+            <button id="cancel" onclick="f2()">取消</button>
+        </div>
+    </div>
+</div>
+
 <script>
+    function empty(){
+        document.getElementById("username").value="";
+        document.getElementById("nickname").value="";
+        document.getElementById("rolename").value="";
+        document.getElementById("email").value="";
+        document.getElementById("mobile").value="";
+        document.getElementById("password").value="";
+    }
+    function f1() {
+        document.getElementById("above").style.display = 'list-item';
+    }
+    function f2() {
+        document.getElementById("above").style.display = 'none';
+        empty();
+    }
+
+    function adduser() {
+        var username = document.getElementById("username").value;
+        var nickname = document.getElementById("nickname").value;
+        var rolename = document.getElementById("rolename").value;
+        var email = document.getElementById("email").value;
+        var mobile = document.getElementById("mobile").value;
+        var password = document.getElementById("password").value;
+        console.log(nickname);
+        $.ajax({
+            type: "GET",
+            url:"Adduser.do",
+            data:{"username":username, "password":password,"nickname":nickname,"rolename":rolename,"email":email,"mobile":mobile},
+            dataType: "json",
+            success:function (result){
+                console.log(result);
+                alert(result);
+
+            }
+        })
+        document.getElementById("above").style.display = 'none';
+        empty();
+    }
+    function f3(){
+
+    }
+
     $.ajax({
         type: "GET",
         url: "userList.do",
         dataType: "json",
         success: function (data) {
-            console.log('服务器返回的数据：',data);
-            $.each(data,function(index,users){
-                var $tr=$("<tr>" +
-                    "<td>"+users.username+"</td>"+
-                    "<td>"+users.nickName+"</td>"+
-                    "<td>"+users.rolename+"</td>"+
-                    "<td>"+users.email+"</td>"+
-                    "<td>"+users.mobile+"</td>"+
-                    "<td>"+users.createtime+"</td>"+
-                    "<td><a href='#'>修改</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#'>删除</a></td>"+
+            console.log('服务器返回的数据：', data);
+            $.each(data, function (index, users) {
+                var $tr = $("<tr>" +
+                    "<td>" + users.username + "</td>" +
+                    "<td>" + users.nickName + "</td>" +
+                    "<td>" + users.rolename + "</td>" +
+                    "<td>" + users.email + "</td>" +
+                    "<td>" + users.mobile + "</td>" +
+                    "<td>" + users.createtime + "</td>" +
+                    "<td><input type='button' value='修改' />&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' value='删除' /></td>" +
                     "</tr>");
                 $("#tb").append($tr);
             })
         }
+    });
+    $(function() {
+        $("#tb").on("click", ":button", function(event) {
+            var username = $(this).closest("tr").find("td").eq(0).text();
+            console.log(username);
+            $.ajax({
+                type: "GET",
+                url: "deleteuser.do",
+                data: {"username": username},
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    alert(result);
+                }
+        });
+    });
     });
 </script>
 </body>

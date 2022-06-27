@@ -1,5 +1,6 @@
 package cn.edu.guet.util;
 
+import cn.edu.guet.bean.User;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import java.security.MessageDigest;
@@ -116,7 +117,7 @@ public class PasswordEncoder {
 
     public static void main(String[] args) {
 
-         System.out.println(PasswordEncoder.encryptToMD5("lx"));
+         System.out.println(PasswordEncoder.encryptToMD5("aaa"));
 
          System.out.println(UUID.randomUUID().toString().replace("-",""));
         PasswordEncoder encoderMd5 = new PasswordEncoder("2c00406bb512472fba3d4b3481d4ef80", "MD5");

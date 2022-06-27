@@ -13,4 +13,6 @@ public interface IUserDao {
     List<Permission> getMenuByUserId(String userId);
     List<User> getUserList();
     List<Role> getRoleList();
+    boolean adduser(User user);
+    boolean deleteuser(String username);
 }
