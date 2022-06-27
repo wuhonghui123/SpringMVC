@@ -75,14 +75,28 @@
                 标题：<input type="text" name="title" id="title"/>
                 <br/><textarea name="description" id="description"/>1</textarea>
                 <input type="submit" id="save" onclick="adduser()"/>
-                <button id="cancel" onclick="f2()">取消</button>
+                <button id="cancel" onclick=f2()>取消</button>
             </form>
         </div>
     </div>
     <div id="above1">
         <div class="form-wrapper">
-            <button id="save2" onclick="updateuser()">保存</button>
-            <button id="cancel2" onclick="f2()">取消</button>
+            <form method="post" action="job/add">
+                文章类别：
+                <select name="classification" id="classification1">
+                    <option value="理论热点" selected>理论热点</option>
+                    <option value="桂电新闻">桂电新闻</option>
+                    <option value="校园快讯">校园快讯</option>
+                    <option value="学院动态">学院动态</option>
+                    <option value="媒体桂电">媒体桂电</option>
+                    <option value="通知公告">通知公告</option>
+                    <option value="招标公示">招标公示</option>
+                </select>
+                标题：<input type="text" name="title2" id="title2"/>
+                <br/><textarea name="description2" id="description2"/>1</textarea>
+                <input type="submit" id="save2" onclick="adduser()"/>
+                <button id="cancel2" onclick=f2()>取消</button>
+            </form>
         </div>
     </div>
 </div>
@@ -90,6 +104,7 @@
     window.onload = function()
     {
         CKEDITOR.replace( 'description');
+        CKEDITOR.replace( 'description2');
     };
     $.ajax({
         type: "GET",
@@ -104,7 +119,7 @@
                     "<td>"+news.news_title+"</td>"+
                     "<td>"+news.update_time+"</td>"+
                     "<td>"+news.news_url+"</td>"+
-                    "<td><a href='#'>编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#'>删除</a></td>"+
+                    "<td><input type='button' id='update' value='修改' />&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='delect' value='删除' /></td>" +
                     "</tr>");
                 $("#tb").append($tr);
             })
@@ -117,12 +132,19 @@
     function f1() {
         document.getElementById("above").style.display = 'list-item';
     }
+    function f3() {
+        document.getElementById("above1").style.display = 'list-item';
+    }
 
     function f2() {
         document.getElementById("above").style.display = 'none';
         document.getElementById("above1").style.display = 'none';
-        empty();
     }
+    $(function () {
+        $("#tb").on("click", "#update", function (event) {
+            f3();
+        });
+    });
 </script>
 </body>
 </html>
