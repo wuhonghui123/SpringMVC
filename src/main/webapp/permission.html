@@ -62,6 +62,7 @@
 </table>
 </div>
 <div class="container">
+<!--    编辑窗口-->
     <div id="above">
         <div class="form-wrapper">
             <label for="permissionname">菜单名字：</label>
@@ -86,6 +87,7 @@
             <button id="cancel" onclick="f2()">取消</button>
         </div>
     </div>
+<!--    修改窗口-->
     <div id="above1">
         <div class="form-wrapper">
             <label for="permissionid">菜单ID：</label>
@@ -106,58 +108,27 @@
 </div>
 
 <script>
-    function addpermission() {
-        var permissionname = document.getElementById("permissionname").value;
-        var url = document.getElementById("url").value;
-        var icon = document.getElementById("icon").value;
-        var target = document.getElementById("target").value;
-        var isParent = document.getElementById("isParent").value;
-        var pidname = document.getElementById("pidname").value;
-        alert(permissionname);
-        $.ajax({
-            type: "GET",
-            url: "addpermission.do",
-            data: {
-                "permissionname": permissionname,
-                "url": url,
-                "icon": icon,
-                "target": target,
-                "isParent": isParent,
-                "pidname": pidname
-            },
-            dataType: "json",
-            success: function (result) {
-                console.log(result);
-                alert(result);
-            }
-        })
-        document.getElementById("above").style.display = 'none';
-        empty();
-    }
-    function updatepermission() {
-        var permissionname = document.getElementById("pname2").value;
-        var url2 = document.getElementById("url2").value;
-        var icon2 = document.getElementById("icon2").value;
-        var permissionid = document.getElementById("permissionid").value;
-        alert(permissionname);
-        $.ajax({
-            type: "GET",
-            url: "updatepermission.do",
-            data: {
-                "permissionname": permissionname,
-                "url": url2,
-                "icon": icon2,
-                "permissionid": permissionid
-            },
-            dataType: "json",
-            success: function (result) {
-                console.log(result);
-                alert(result);
-            }
-        })
-        document.getElementById("above").style.display = 'none';
-        empty();
-    }
+
+
+    //删除菜单
+    $(function () {
+        $("#tb").on("click", "#delect", function (event) {
+            var permissionname = $(this).closest("tr").find("td").eq(1).text();
+            confirm("是否删除菜单："+permissionname);
+            $.ajax({
+                type: "GET",
+                url: "deletepermission.do",
+                data: {"permissionname": permissionname},
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    alert(result);
+                }
+            });
+        });
+    });
+
+    //清空窗口数据
     function empty() {
         document.getElementById("permissionname").value = "";
         document.getElementById("url").value = "";
@@ -171,16 +142,19 @@
         $("#permissionid").html('');
     }
 
+    //打开添加窗口
     function f1() {
         document.getElementById("above").style.display = 'list-item';
     }
 
+    //关闭窗口
     function f2() {
         document.getElementById("above").style.display = 'none';
         document.getElementById("above1").style.display = 'none';
         empty();
     }
 
+    //获取菜单列表
     $.ajax({
         type: "GET",
         url: "permissionList.do",
@@ -199,6 +173,8 @@
             })
         }
     });
+
+    //点击修改按钮进行的操作
     $(function () {
         $("#tb").on("click", "#update", function (event) {
             $("#permissionid").append($(this).closest("tr").find("td").eq(0).text())
@@ -208,6 +184,59 @@
             document.getElementById("above1").style.display = 'list-item';
         });
     });
+    //添加菜单
+    function addpermission() {
+        var permissionname = document.getElementById("permissionname").value;
+        var url = document.getElementById("url").value;
+        var icon = document.getElementById("icon").value;
+        var target = document.getElementById("target").value;
+        var isParent = document.getElementById("isParent").value;
+        var pidname = document.getElementById("pidname").value;
+        confirm("是否添加");
+        $.ajax({
+            type: "GET",
+            url: "addpermission.do",
+            data: {
+                "permissionname": permissionname,
+                "url": url,
+                "icon": icon,
+                "target": target,
+                "isParent": isParent,
+                "pidname": pidname
+            },
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+                alert(result);
+            }
+        })
+        f2();
+    }
+
+    //修改菜单
+    function updatepermission() {
+        var permissionname = document.getElementById("pname2").value;
+        var url2 = document.getElementById("url2").value;
+        var icon2 = document.getElementById("icon2").value;
+        var permissionid =$("#permissionid").text();
+        confirm(permissionid);
+        $.ajax({
+            type: "GET",
+            url: "updatepermission.do",
+            data: {
+                "permissionname": permissionname,
+                "url": url2,
+                "icon": icon2,
+                "permissionid": permissionid,
+            },
+            dataType: "json",
+            success: function (result) {
+                console.log(result);
+                alert(result);
+            }
+        })
+        f2();
+    }
 </script>
 </body>
 </html>

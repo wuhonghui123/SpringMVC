@@ -229,7 +229,6 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public boolean adduser(User user) {
-        System.out.println("DAO层:" + user);
         String salt = PasswordEncoder.encryptToMD5(user.getUsername());//获取盐
         PasswordEncoder encoderMd5 = new PasswordEncoder(salt, "MD5");
         String pwd_md5 = encoderMd5.encode(user.getPassword());//获取加密后的密码

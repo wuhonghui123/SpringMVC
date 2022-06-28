@@ -68,6 +68,7 @@
     </table>
 </div>
 <div class="container">
+<!--    添加用户窗口-->
     <div id="above">
         <div class="form-wrapper">
             <label for="username">账号：</label>
@@ -92,6 +93,7 @@
             <button id="cancel" onclick="f2()">取消</button>
         </div>
     </div>
+<!--    修改用户信息窗口-->
     <div id="above1">
         <div class="form-wrapper">
             <label >ID：</label>
@@ -119,6 +121,7 @@
 </div>
 
 <script>
+    //清空窗口信息
     function empty() {
         document.getElementById("username").value = "";
         document.getElementById("nickname").value = "";
@@ -133,17 +136,19 @@
         document.getElementById("mobile1").value = "";
         $("#userid").html('');
     }
-
+    //打开添加窗口
     function f1() {
         document.getElementById("above").style.display = 'list-item';
     }
 
+    //关闭窗口
     function f2() {
         document.getElementById("above").style.display = 'none';
         document.getElementById("above1").style.display = 'none';
         empty();
     }
 
+    //添加用户信息
     function adduser() {
         var username = document.getElementById("username").value;
         var nickname = document.getElementById("nickname").value;
@@ -151,7 +156,7 @@
         var email = document.getElementById("email").value;
         var mobile = document.getElementById("mobile").value;
         var password = document.getElementById("password").value;
-        console.log(nickname);
+        confirm("是否添加");
         $.ajax({
             type: "GET",
             url: "Adduser.do",
@@ -174,6 +179,7 @@
         empty();
     }
 
+    //更新用户信息
     function updateuser(){
         var username = document.getElementById("username1").value;
         var nickname = document.getElementById("nickname1").value;
@@ -181,6 +187,7 @@
         var email = document.getElementById("email1").value;
         var mobile = document.getElementById("mobile1").value;
         var userid = $("#userid").text();
+        confirm("是否修改");
         $.ajax({
             type: "GET",
             url: "updateuser.do",
@@ -203,6 +210,7 @@
         empty();
     }
 
+    //获取用户列表
     $.ajax({
         type: "GET",
         url: "userList.do",
@@ -224,11 +232,13 @@
             })
         }
     });
+
     //删除用户
     $(function () {
         $("#tb").on("click", "#delect", function (event) {
             var username = $(this).closest("tr").find("td").eq(1).text();
             console.log(username);
+            confirm("是否删除用户"+username);
             $.ajax({
                 type: "GET",
                 url: "deleteuser.do",
@@ -241,6 +251,7 @@
             });
         });
     });
+
     //打开修改用户信息界面
     $(function () {
         $("#tb").on("click", "#update", function (event) {

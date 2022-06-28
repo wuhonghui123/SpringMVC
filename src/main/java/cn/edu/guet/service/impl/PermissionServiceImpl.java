@@ -14,4 +14,23 @@ public class PermissionServiceImpl implements IPermissionService {
 
         return permissionDao.permissionList();
     }
+
+    @Override
+    public boolean addpermission(Permission permission) {
+        IPermissionDao permissionDao=new PermissionDaoImpl();
+        return permissionDao.addpermission(permission);
+    }
+
+    @Override
+    public boolean updatepermission(Permission permission) {
+        IPermissionDao permissionDao=new PermissionDaoImpl();
+        return permissionDao.updatepermission(permission);
+    }
+
+    @Override
+    public boolean deletepermission(String permissionname) {
+        IPermissionDao permissionDao=new PermissionDaoImpl();
+        return permissionDao.deletepermission(permissionname);
+    }
+
 }
