@@ -13,4 +13,10 @@ public class NewsServiceImpl implements NewsService {
         NewsDao newsDao = new NewsDaoImpl();
         return newsDao.newsList();
     }
+
+    @Override
+    public List<News> newsclass(String newsclass) {
+        NewsDao newsDao = new NewsDaoImpl();
+        return newsDao.newsclass(newsclass);
+    }
 }

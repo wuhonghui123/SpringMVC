@@ -26,7 +26,6 @@ public class UserController {
     }
     @RequestMapping("/Adduser")
     public boolean adduser(String username,String password,String nickname,String rolename,String email,String mobile){
-        System.out.println("昵称"+nickname);
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
@@ -39,13 +38,14 @@ public class UserController {
         RoleService roleService = new RoleServiceImpl();
         boolean a = userService.adduser(user);
         roleService.adduserrole(user);
-        System.out.println("添加用户成功:"+user);
+        System.out.println("添加用户 "+user+" 成功:");
         return a;
     }
     @RequestMapping("/deleteuser")
     public boolean deleteuser(String username){
         RoleService roleService = new RoleServiceImpl();
         boolean a = roleService.deleteuserrole(username);
+        System.out.println("删除用户的角色成功"+username);
         IUserService userService = new UserServiceImpl();
         boolean b = userService.deleteuser(username);
         System.out.println("删除用户成功"+username);
@@ -61,6 +61,7 @@ public class UserController {
         user.setEmail(email);
         user.setMobile(mobile);
         IUserService userService = new UserServiceImpl();
+        System.out.println("修改用户信息");
         return userService.updateuser(user);
     }
 }

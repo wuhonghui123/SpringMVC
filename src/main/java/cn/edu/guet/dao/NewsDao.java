@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface NewsDao {
     List<News> newsList();
+    List<News> newsclass(String news_class);
 }

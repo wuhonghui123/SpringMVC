@@ -45,7 +45,17 @@
 <body>
 <div id="under">
 <input type="text"><button>查询</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick=f1()>新增</button>
-<table id="tb">
+    <select name="newsclass" id="newsclass">
+        <option value="理论热点" selected>理论热点</option>
+        <option value="桂电新闻">桂电新闻</option>
+        <option value="校园快讯">校园快讯</option>
+        <option value="学院动态">学院动态</option>
+        <option value="媒体桂电">媒体桂电</option>
+        <option value="通知公告">通知公告</option>
+        <option value="招标公示">招标公示</option>
+    </select>
+    <button id="selectnews" onclick="selectnews()">查询</button>
+    <table id="tb">
     <caption>文章列表</caption>
     <tr>
         <th><input type="checkbox">全&nbsp;&nbsp;选</th>
@@ -75,8 +85,8 @@
                 标题：<input type="text" name="title" id="title"/>
                 <br/><textarea name="description" id="description"/>1</textarea>
                 <input type="submit" id="save" onclick="adduser()"/>
-                <button id="cancel" onclick=f2()>取消</button>
             </form>
+            <button id="cancel" onclick=f2()>取消</button>
         </div>
     </div>
     <div id="above1">
@@ -95,14 +105,13 @@
                 标题：<input type="text" name="title2" id="title2"/>
                 <br/><textarea name="description2" id="description2"/>1</textarea>
                 <input type="submit" id="save2" onclick="adduser()"/>
-                <button id="cancel2" onclick=f2()>取消</button>
             </form>
+            <button id="cancel2" onclick=f2()>取消</button>
         </div>
     </div>
 </div>
 <script>
-    window.onload = function()
-    {
+    window.onload = function() {
         CKEDITOR.replace( 'description');
         CKEDITOR.replace( 'description2');
     };
@@ -125,7 +134,31 @@
             })
         }
     });
-
+    function selectnews(){
+            $("#tb tr:not(:first)").html("");
+            var newsclass = $("#newsclass").val();
+            console.log("新闻类别"+newsclass);
+            $.ajax({
+                type: "GET",
+                url: "newsclass.do",
+                data: {"newsclass": newsclass},
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    $.each(data, function (index, news) {
+                        var $tr = $("<tr>" +
+                            "<td><input type='checkbox'></td>" +
+                            "<td>" + news.news_class + "</td>" +
+                            "<td>" + news.news_title + "</td>" +
+                            "<td>" + news.update_time + "</td>" +
+                            "<td>" + news.news_url + "</td>" +
+                            "<td><input type='button' id='update' value='修改' />&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='delect' value='删除' /></td>" +
+                            "</tr>");
+                        $("#tb").append($tr);
+                    })
+                }
+            })
+    }
     function empty() {
     }
 
@@ -135,7 +168,6 @@
     function f3() {
         document.getElementById("above1").style.display = 'list-item';
     }
-
     function f2() {
         document.getElementById("above").style.display = 'none';
         document.getElementById("above1").style.display = 'none';

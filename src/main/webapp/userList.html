@@ -226,7 +226,7 @@
     });
     $(function () {
         $("#tb").on("click", "#delect", function (event) {
-            var username = $(this).closest("tr").find("td").eq(0).text();
+            var username = $(this).closest("tr").find("td").eq(1).text();
             console.log(username);
             $.ajax({
                 type: "GET",

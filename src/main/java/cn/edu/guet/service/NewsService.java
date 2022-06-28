@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface NewsService {
     List<News> newsList();
+    List<News> newsclass(String newsclass);
 }
