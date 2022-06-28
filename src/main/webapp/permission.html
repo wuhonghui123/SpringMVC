@@ -114,17 +114,20 @@
     $(function () {
         $("#tb").on("click", "#delect", function (event) {
             var permissionname = $(this).closest("tr").find("td").eq(1).text();
-            confirm("是否删除菜单："+permissionname);
-            $.ajax({
-                type: "GET",
-                url: "deletepermission.do",
-                data: {"permissionname": permissionname},
-                dataType: "json",
-                success: function (result) {
-                    console.log(result);
-                    alert(result);
-                }
-            });
+            var d = confirm("是否删除菜单："+permissionname);
+            if(d){
+                $.ajax({
+                    type: "GET",
+                    url: "deletepermission.do",
+                    data: {"permissionname": permissionname},
+                    dataType: "json",
+                    success: function (result) {
+                        console.log(result);
+                        alert(result);
+                    }
+                });
+            }
+
         });
     });
 
@@ -192,25 +195,29 @@
         var target = document.getElementById("target").value;
         var isParent = document.getElementById("isParent").value;
         var pidname = document.getElementById("pidname").value;
-        confirm("是否添加");
-        $.ajax({
-            type: "GET",
-            url: "addpermission.do",
-            data: {
-                "permissionname": permissionname,
-                "url": url,
-                "icon": icon,
-                "target": target,
-                "isParent": isParent,
-                "pidname": pidname
-            },
-            dataType: "json",
-            success: function (result) {
-                console.log(result);
-                alert(result);
-            }
-        })
-        f2();
+        var a = confirm("是否添加");
+        if(a){
+            $.ajax({
+                type: "GET",
+                url: "addpermission.do",
+                data: {
+                    "permissionname": permissionname,
+                    "url": url,
+                    "icon": icon,
+                    "target": target,
+                    "isParent": isParent,
+                    "pidname": pidname
+                },
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    alert(result);
+                }
+            })
+            f2();
+        }
+
+
     }
 
     //修改菜单
