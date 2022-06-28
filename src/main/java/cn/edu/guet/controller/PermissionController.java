@@ -17,5 +17,27 @@ public class PermissionController {
 
         return permissionService.permissionList();
     }
+    @RequestMapping("/addpermission")
+    public boolean addpermission(String permissionname,String url,String icon,String target,String isParent,String pidname){
+        Permission permission = new Permission();
+        permission.setName(permissionname);
+        permission.setUrl(url);
+        permission.setIcon(icon);
+        permission.setTarget(target);
+        permission.setIsParent(isParent);
+        permission.setpId(pidname);
+        System.out.println(permission);
+        return true;
+    }
+    @RequestMapping("/updatepermission")
+    public boolean updatepermission(String permissionname,String url,String icon,String permissionid){
+        Permission permission = new Permission();
+        permission.setName(permissionname);
+        permission.setUrl(url);
+        permission.setIcon(icon);
+        permission.setId(permissionid);
+        System.out.println(permission);
+        return true;
+    }
 
 }

@@ -5,40 +5,151 @@
     <title>角色列表</title>
     <script src="./js/jquery.js"></script>
     <style>
-        table{
-            border:1px solid black;
+        table {
+            border: 1px solid black;
             border-collapse: collapse;
             width: 100%;
         }
-        th,td{
-            border:1px solid black;
+
+        th, td {
+            border: 1px solid black;
+        }
+        #under {
+            position: absolute;
+            z-index: -1;
+        }
+
+        #above,#above1 {
+            list-style: none;
+            opacity: 1;
+            z-index: 2;
+            display: none;
+            background-color: #9b9595;
+            margin: auto auto;
+            width: 358px;
+            border-radius: 5px;
+            padding: 100px 50px;
+            position: relative;
+        }
+
+        .form-wrapper,.form-wrapper1 {
+            left: 50%;
+            top: 50%;
         }
     </style>
 </head>
 <body>
-<input type="text"><button>查询</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>新增</button>
+<div id="under">
+<input type="text"><button>查询</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="f1()">新增</button>
 <table id="tb">
     <caption>角色列表</caption>
     <tr>
+        <th>角色ID</th>
         <th>角色名称</th>
+        <th>操作</th>
     </tr>
 </table>
+</div>
+<div class="container">
+    <div id="above">
+        <div class="form-wrapper">
+            <label for="rolename">角色名：</label>
+            <input type="text" name="rolename" id="rolename">
+            <button id="save" onclick="addrole()">保存</button>
+            <button id="cancel" onclick="f2()">取消</button>
+            <br/>
+            <label>权限：</label>
+            <br/>
+        </div>
+    </div>
+    <div id="above1">
+        <div class="form-wrapper1">
+            <label >角色ID：</label>
+            <label id="roleid"></label>
+            <br/>
+            <label for="rolename">角色名：</label>
+            <input type="text" name="rolename" id="rolename1">
+            <button id="save1" onclick="updaterole()">保存</button>
+            <button id="cancel1" onclick="f2()">取消</button>
+            <br/>
+            <label>权限：</label>
+            <br/>
+        </div>
+    </div>
+</div>
 <script>
+    function empty(){
+        $("input[name='Permission']").prop("checked",false);
+        $("#roleid").html('');
+        document.getElementById("rolename").value = "";
+        document.getElementById("rolename1").value = "";
+    }
+    function f1(){
+            document.getElementById("above").style.display = 'list-item';
+    }
+    function f2() {
+        document.getElementById("above").style.display = 'none';
+        document.getElementById("above1").style.display = 'none';
+        empty();
+    }
     $.ajax({
         type: "GET",
         url: "roleList.do",
         dataType: "json",
         success: function (data) {
-            console.log('服务器返回的数据：',data);
+            console.log('角色列表：',data);
             $.each(data,function(index,role){
                 var $tr=$("<tr>" +
-                    "<td><input type='checkbox'></td>"+
+                    "<td>"+role.roleid+"</td>"+
                     "<td>"+role.rolename+"</td>"+
-                    "<td><a href='#'>编辑</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='#'>删除</a></td>"+
+                    "<td><input type='button' id='update' value='编辑' />&nbsp;&nbsp;&nbsp;&nbsp;<input type='button' id='delect' value='删除' /></td>" +
                     "</tr>");
                 $("#tb").append($tr);
             })
         }
+    });
+    $.ajax({
+        type: "GET",
+        url: "rolePermissionList.do",
+        dataType: "json",
+        success: function (data) {
+            console.log("服务器返回的角色权限数据");
+            console.log(data);
+            sessionStorage.setItem('rolePermission',JSON.stringify(data));
+            var rolePermissionList = JSON.parse(sessionStorage.getItem('rolePermission'));
+            console.log("存储再提取后的数据");
+            console.log(rolePermissionList);
+        }
+    });
+    $.ajax({
+        type: "GET",
+        url: "permissionList.do",
+        dataType: "json",
+        success: function (data) {
+            console.log(data);
+            $.each(data, function (index, permission) {
+                $(".form-wrapper").append("<label><input type='checkbox' name='Permission' value='"+permission.name+"' id='"+permission.name+"'>"+permission.name+"</label><br/>");
+            });
+            $.each(data, function (index, permission) {
+                $(".form-wrapper1").append("<label><input type='checkbox' name='Permission' value='"+permission.name+"' id='"+permission.name+"1'>"+permission.name+"</label><br/>");
+            });
+        }
+    });
+    $(function () {
+        $("#tb").on("click", "#update", function (event) {
+            var roleid = $(this).closest("tr").find("td").eq(0).text()
+            $("#roleid").append(roleid);
+            $("#rolename1").val($(this).closest("tr").find("td").eq(1).text())
+            var rolePermission = JSON.parse(sessionStorage.getItem('rolePermission'));
+            $.each(rolePermission, function (index, permission){
+                if(permission.roleid === roleid){
+                    console.log(permission.Permissionname)
+                    $("input[value='"+permission.Permissionname+"']").prop("checked",true);
+                }
+            });
+            console.log(rolePermission);
+            document.getElementById("above1").style.display = 'list-item';
+        });
     });
 </script>
 </body>

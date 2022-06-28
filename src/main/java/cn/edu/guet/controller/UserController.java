@@ -20,10 +20,6 @@ public class UserController {
         IUserService iUserService = new UserServiceImpl();
         return iUserService.getUserList();
     }
-    @RequestMapping("/roleList")
-    public List<Role> roleList(){
-        return null;
-    }
     @RequestMapping("/Adduser")
     public boolean adduser(String username,String password,String nickname,String rolename,String email,String mobile){
         User user = new User();

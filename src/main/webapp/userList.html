@@ -56,7 +56,7 @@
     <table id="tb">
         <caption>用户列表</caption>
         <tr>
-            <th>I&nbsp;&nbsp;D</th>
+            <th>用户ID</th>
             <th>账&nbsp;&nbsp;号</th>
             <th>昵&nbsp;&nbsp;称</th>
             <th>角&nbsp;&nbsp;色</th>
@@ -224,6 +224,7 @@
             })
         }
     });
+    //删除用户
     $(function () {
         $("#tb").on("click", "#delect", function (event) {
             var username = $(this).closest("tr").find("td").eq(1).text();
@@ -240,6 +241,7 @@
             });
         });
     });
+    //打开修改用户信息界面
     $(function () {
         $("#tb").on("click", "#update", function (event) {
             $("#userid").append($(this).closest("tr").find("td").eq(0).text())
