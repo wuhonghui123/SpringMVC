@@ -5,7 +5,7 @@ window.onload = () => {
     let currentIndex = 0;
     let autoPlay = () => {
         window.autoPlay = true;
-        window.autoPlayTimer = setInterval(() => move((currentIndex + 1) % 5), 8000);
+        window.autoPlayTimer = setInterval(() => move((currentIndex + 1) % 5), 5000);
     }
     let stopPlay = () => {
         if (window.autoPlay) {
