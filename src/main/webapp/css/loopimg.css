@@ -1,0 +1,95 @@
+ul,
+ol {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#loopimg {
+    width: 1280px;
+    height: 410px;
+    margin: 30px auto;
+    position: relative;
+}
+
+#display {
+    width: 1280px;
+    height: 410px;
+    overflow: hidden;
+    position: relative;
+    -webkit-user-select: none;
+}
+
+#display ul {
+    position: relative;
+    left: 0;
+    top: 0px;
+    width: 7680px;
+    height: 350px;
+    transition: left 500ms linear;
+}
+
+#list li {
+    float: left;
+    width: 1280px;
+    height: 410px;
+}
+
+#arrow {
+    display: none;
+}
+
+#arrow span {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    left: 5px;
+    top: 50%;
+    margin-top: -20px;
+    background: #000;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    font-family: 黑体, SimHei;
+    font-size: 30px;
+    color: #fff;
+    opacity: 0.4;
+    border: 1px solid #fff;
+    -webkit-user-select: none;
+}
+
+#arrow span:hover {
+    opacity: 0.7;
+}
+
+#arrow #right {
+    right: 5px;
+    left: auto;
+}
+
+#index_container {
+    position: absolute;
+    width: 210px;
+    height: 5px;
+    right: 525px;
+    bottom: 20px;
+}
+
+#index_container .index {
+    float: left;
+    width: 20px;
+    height: 5px;
+    line-height: 30px;
+    text-align: center;
+    opacity: 0.4;
+    background: #888585;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+
+#index_container .current {
+    background: #ffffff;
+}

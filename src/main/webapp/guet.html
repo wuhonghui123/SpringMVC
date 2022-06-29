@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>桂林电子科技大学官网</title>
     <link type="text/css" rel="stylesheet" href="./css/guet.css"/>
+    <link type="text/css" rel="stylesheet" href="./css/loopimg.css"/>
     <script src="./js/jquery.js"></script>
-    <script src="./js/toggle.js"></script>
+    <script src="./js/loopimg.js"></script>
 
     <script>
         $(function (){
@@ -200,8 +201,20 @@
         </ul>
     </nav>
     <div id="loopimg">
-        <img src="./image/1.jpg" alt="" width="1280px" height="410px">
-<!--        轮播图-->
+        <div id="display">
+            <ul id="list">
+                <li><img src="image/5.jpg" width="1280" height="410"/></li>
+                <li><img src="image/1.jpg" width="1280" height="410"/></li>
+                <li><img src="image/2.jpg" width="1280" height="410"/></li>
+                <li><img src="image/3.jpg" width="1280" height="410"/></li>
+                <li><img src="image/4.jpg" width="1280" height="410"/></li>
+            </ul>
+            <ol id="index_container"></ol>
+            <div id="arrow">
+                <span id="left" title="前一张"><</span>
+                <span id="right" title="后一张">></span>
+            </div>
+        </div>
     </div>
     <div id="neirong">
         <DIV class="left1">
