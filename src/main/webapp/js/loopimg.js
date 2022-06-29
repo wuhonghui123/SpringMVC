@@ -17,7 +17,7 @@ window.onload = () => {
     for (let i = 0; i < 5; i++) {
         let li = document.createElement('li');
         li.className = 'index';
-        if (i == 0) li.className += ' current';
+        if (i === 0) li.className += ' current';
         li.index = i;
         ol.appendChild(li);
         li.addEventListener('mouseover', function() {
