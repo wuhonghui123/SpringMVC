@@ -78,8 +78,67 @@
     </div>
 </div>
 <script>
+    //添加角色
+    function addrole(){ var arr = [];
+        var rolename = $("#rolename").val();
+        $("input[name='Permission']:checked").each(function (){
+            arr.push($(this).val());
+        });
+        var roleinfor = arr.toString();
+        console.log(roleinfor);
+        if(confirm("是否添加菜单"+rolename)){
+            $.ajax({
+                type: "GET",
+                url: "addrole.do",
+                data: {
+                    "rolename":rolename,
+                    "roleinfor": roleinfor
+                },
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    if(result === "ture"){
+                        alert(result);
+                    }
+                }
+            })
+            f2();
+        }
+    }
+
+    //修改角色信息、权限
+    function updaterole(){
+        var arr = [];
+        var roleid = $("#roleid").text();
+        var rolename = $("#rolename1").val();
+        $("input[name='Permission1']:checked").each(function (){
+            arr.push($(this).val());
+        });
+        var roleinfor = arr.toString();
+        console.log(roleinfor);
+        if(confirm("是否修改")){
+            $.ajax({
+                type: "GET",
+                url: "updaterole.do",
+                data: {
+                    "roleid":roleid,
+                    "rolename":rolename,
+                    "roleinfor": roleinfor
+                },
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    if(result === "ture"){
+                        alert(result);
+                    }
+                }
+            })
+            f2();
+        }
+    }
     function empty(){
         $("input[name='Permission']").prop("checked",false);
+        $("input[name='Permission1']").prop("checked",false);
         $("#roleid").html('');
         document.getElementById("rolename").value = "";
         document.getElementById("rolename1").value = "";
@@ -92,6 +151,8 @@
         document.getElementById("above1").style.display = 'none';
         empty();
     }
+
+    //获取角色列表
     $.ajax({
         type: "GET",
         url: "roleList.do",
@@ -108,6 +169,8 @@
             })
         }
     });
+
+    // 获取角色对应的权限列表
     $.ajax({
         type: "GET",
         url: "rolePermissionList.do",
@@ -121,20 +184,24 @@
             console.log(rolePermissionList);
         }
     });
+
+    //获取所有菜单列表
     $.ajax({
         type: "GET",
         url: "permissionList.do",
         dataType: "json",
         success: function (data) {
-            console.log(data);
+            console.log("所有菜单数据：",data);
             $.each(data, function (index, permission) {
-                $(".form-wrapper").append("<label><input type='checkbox' name='Permission' value='"+permission.name+"' id='"+permission.name+"'>"+permission.name+"</label><br/>");
+                $(".form-wrapper").append("<label><input type='checkbox' name='Permission' value='"+permission.id+"' id='"+permission.name+"'>"+permission.name+"</label><br/>");
             });
             $.each(data, function (index, permission) {
-                $(".form-wrapper1").append("<label><input type='checkbox' name='Permission' value='"+permission.name+"' id='"+permission.name+"1'>"+permission.name+"</label><br/>");
+                $(".form-wrapper1").append("<label><input type='checkbox' name='Permission1' value='"+permission.id+"' id='"+permission.name+"1'>"+permission.name+"</label><br/>");
             });
         }
     });
+
+    //给复选款赋初值
     $(function () {
         $("#tb").on("click", "#update", function (event) {
             var roleid = $(this).closest("tr").find("td").eq(0).text()
@@ -143,12 +210,33 @@
             var rolePermission = JSON.parse(sessionStorage.getItem('rolePermission'));
             $.each(rolePermission, function (index, permission){
                 if(permission.roleid === roleid){
-                    console.log(permission.Permissionname)
-                    $("input[value='"+permission.Permissionname+"']").prop("checked",true);
+                    console.log(permission.Permissionid)
+                    $("input[value='"+permission.Permissionid+"']").prop("checked",true);
                 }
             });
             console.log(rolePermission);
             document.getElementById("above1").style.display = 'list-item';
+        });
+    });
+
+    //删除角色
+    $(function () {
+        $("#tb").on("click", "#delect", function (event) {
+            var rolename = $(this).closest("tr").find("td").eq(1).text();
+            var roleid = $(this).closest("tr").find("td").eq(0).text();
+            console.log(rolename);
+            if(confirm("是否删除角色"+rolename)){
+                $.ajax({
+                    type: "GET",
+                    url: "deleterole.do",
+                    data: {"roleid": roleid},
+                    dataType: "json",
+                    success: function (result) {
+                        console.log(result);
+                        alert(result);
+                    }
+                });
+            }
         });
     });
 </script>

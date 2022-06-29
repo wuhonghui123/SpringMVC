@@ -10,4 +10,7 @@ public interface RoleService {
     boolean deleteuserrole(String username);
     List<Role> getRoleList();
     List<Role> getRolePermissionList();
+    boolean updaterole(String roleid,String rolename,String roleinfor);
+    boolean addrole(String rolename,String roleinfor);
+    boolean deleterole(String roleid);
 }

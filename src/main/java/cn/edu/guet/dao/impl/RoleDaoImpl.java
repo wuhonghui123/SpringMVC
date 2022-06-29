@@ -57,6 +57,27 @@ public class RoleDaoImpl implements RoleDao {
     }
 
     @Override
+    public boolean deleteuserroletwo(String roleid) {
+        Connection conn = null;
+        String root = "root";// mysql的用户名
+        String pwd = "123456";
+        String url = "jdbc:mysql://120.25.164.209:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        String sql = "DELETE FROM user_role WHERE role_id = '" + roleid + "';";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(url, root, pwd);
+            Statement s = conn.createStatement();
+            int row = s.executeUpdate(sql);
+            //6. 关闭连接，释放资源
+            conn.close();
+            s.close();
+            return row!=0;
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public List<Role> getRoleList() {
         Connection conn = null;
         String user = "root";// mysql的用户名
@@ -131,5 +152,93 @@ public class RoleDaoImpl implements RoleDao {
             }
         }
         return roleList;//返回集合（把装满芒果的麻袋，扛到车上）
+    }
+
+    @Override
+    public boolean addrole(String rolename, String roleid) {
+        Connection conn = null;
+        String root = "root";// mysql的用户名
+        String pwd = "123456";
+        String url = "jdbc:mysql://120.25.164.209:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        String sql = "INSERT INTO role(role_id,role_name)VALUES(?,?)";
+        PreparedStatement pstmt = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(url, root, pwd);
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,roleid );// 给占位符赋值
+            pstmt.setString(2, rolename);
+            int row = pstmt.executeUpdate();
+            conn.close();
+            pstmt.close();
+            return row!=0;
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean deleterole(String roleid) {
+        Connection conn = null;
+        String root = "root";// mysql的用户名
+        String pwd = "123456";
+        String url = "jdbc:mysql://120.25.164.209:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        String sql = "DELETE FROM role WHERE role_id = '" + roleid + "';";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(url, root, pwd);
+            Statement s = conn.createStatement();
+            int row = s.executeUpdate(sql);
+            //6. 关闭连接，释放资源
+            conn.close();
+            s.close();
+            return row!=0;
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void addrolePermission(String roleid, String permissionid) {
+        Connection conn = null;
+        String root = "root";// mysql的用户名
+        String pwd = "123456";
+        String url = "jdbc:mysql://120.25.164.209:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        String sql = "INSERT INTO role_permission(role_id,permission_id)VALUES(?,?)";
+        PreparedStatement pstmt = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(url, root, pwd);
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,roleid );// 给占位符赋值
+            pstmt.setString(2, permissionid);
+            pstmt.executeUpdate();
+            conn.close();
+            pstmt.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public boolean deleterolePermission(String roleid) {
+        Connection conn = null;
+        String root = "root";// mysql的用户名
+        String pwd = "123456";
+        String url = "jdbc:mysql://120.25.164.209:3306/guet?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+        String sql = "DELETE FROM role_permission WHERE role_id ='" + roleid + "';";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(url, root, pwd);
+            Statement s = conn.createStatement();
+            int row = s.executeUpdate(sql);
+            //6. 关闭连接，释放资源
+            conn.close();
+            s.close();
+            return row!=0;
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -92,6 +92,7 @@
         <div class="form-wrapper">
             <label for="permissionid">菜单ID：</label>
             <label id="permissionid"></label>
+            <br/>
             <label for="pname2">菜单名字：</label>
             <input type="text" name="pname" id="pname2">
             <br/>
@@ -114,8 +115,7 @@
     $(function () {
         $("#tb").on("click", "#delect", function (event) {
             var permissionname = $(this).closest("tr").find("td").eq(1).text();
-            var d = confirm("是否删除菜单："+permissionname);
-            if(d){
+            if(confirm("是否删除菜单："+permissionname)){
                 $.ajax({
                     type: "GET",
                     url: "deletepermission.do",
@@ -137,6 +137,7 @@
         document.getElementById("url").value = "";
         document.getElementById("icon").value = "";
         document.getElementById("target").value = "";
+        $("#isParent").val("")
         document.getElementById("isParent").value = "";
         document.getElementById("pidname").value = "";
         document.getElementById("pname2").value = "";
@@ -195,8 +196,7 @@
         var target = document.getElementById("target").value;
         var isParent = document.getElementById("isParent").value;
         var pidname = document.getElementById("pidname").value;
-        var a = confirm("是否添加");
-        if(a){
+        if(confirm("是否添加菜单"+permissionname)){
             $.ajax({
                 type: "GET",
                 url: "addpermission.do",
@@ -226,23 +226,25 @@
         var url2 = document.getElementById("url2").value;
         var icon2 = document.getElementById("icon2").value;
         var permissionid =$("#permissionid").text();
-        confirm(permissionid);
-        $.ajax({
-            type: "GET",
-            url: "updatepermission.do",
-            data: {
-                "permissionname": permissionname,
-                "url": url2,
-                "icon": icon2,
-                "permissionid": permissionid,
-            },
-            dataType: "json",
-            success: function (result) {
-                console.log(result);
-                alert(result);
-            }
-        })
-        f2();
+        if("是否修改菜单"+confirm(permissionid)){
+            $.ajax({
+                type: "GET",
+                url: "updatepermission.do",
+                data: {
+                    "permissionname": permissionname,
+                    "url": url2,
+                    "icon": icon2,
+                    "permissionid": permissionid,
+                },
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    alert(result);
+                }
+            })
+            f2();
+        }
+
     }
 </script>
 </body>

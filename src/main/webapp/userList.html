@@ -156,27 +156,29 @@
         var email = document.getElementById("email").value;
         var mobile = document.getElementById("mobile").value;
         var password = document.getElementById("password").value;
-        confirm("是否添加");
-        $.ajax({
-            type: "GET",
-            url: "Adduser.do",
-            data: {
-                "username": username,
-                "password": password,
-                "nickname": nickname,
-                "rolename": rolename,
-                "email": email,
-                "mobile": mobile
-            },
-            dataType: "json",
-            success: function (result) {
-                console.log(result);
-                alert(result);
+        if(confirm("是否添加用户"+username)){
+            $.ajax({
+                type: "GET",
+                url: "Adduser.do",
+                data: {
+                    "username": username,
+                    "password": password,
+                    "nickname": nickname,
+                    "rolename": rolename,
+                    "email": email,
+                    "mobile": mobile
+                },
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    alert(result);
 
-            }
-        })
-        document.getElementById("above").style.display = 'none';
-        empty();
+                }
+            })
+            document.getElementById("above").style.display = 'none';
+            empty();
+        }
+
     }
 
     //更新用户信息
@@ -187,27 +189,29 @@
         var email = document.getElementById("email1").value;
         var mobile = document.getElementById("mobile1").value;
         var userid = $("#userid").text();
-        confirm("是否修改");
-        $.ajax({
-            type: "GET",
-            url: "updateuser.do",
-            data: {
-                "userid":userid,
-                "username": username,
-                "nickname": nickname,
-                "rolename": rolename,
-                "email": email,
-                "mobile": mobile
-            },
-            dataType: "json",
-            success: function (result) {
-                console.log(result);
-                alert(result);
+        if("是否修改用户"+confirm(userid)){
+            $.ajax({
+                type: "GET",
+                url: "updateuser.do",
+                data: {
+                    "userid":userid,
+                    "username": username,
+                    "nickname": nickname,
+                    "rolename": rolename,
+                    "email": email,
+                    "mobile": mobile
+                },
+                dataType: "json",
+                success: function (result) {
+                    console.log(result);
+                    alert(result);
 
-            }
-        })
-        document.getElementById("above1").style.display = 'none';
-        empty();
+                }
+            })
+            document.getElementById("above1").style.display = 'none';
+            empty();
+        }
+
     }
 
     //获取用户列表
@@ -238,17 +242,18 @@
         $("#tb").on("click", "#delect", function (event) {
             var username = $(this).closest("tr").find("td").eq(1).text();
             console.log(username);
-            confirm("是否删除用户"+username);
-            $.ajax({
-                type: "GET",
-                url: "deleteuser.do",
-                data: {"username": username},
-                dataType: "json",
-                success: function (result) {
-                    console.log(result);
-                    alert(result);
-                }
-            });
+            if(confirm("是否删除用户"+username)){
+                $.ajax({
+                    type: "GET",
+                    url: "deleteuser.do",
+                    data: {"username": username},
+                    dataType: "json",
+                    success: function (result) {
+                        console.log(result);
+                        alert(result);
+                    }
+                });
+            }
         });
     });
 
