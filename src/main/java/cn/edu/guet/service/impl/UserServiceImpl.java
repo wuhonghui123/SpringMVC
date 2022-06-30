@@ -5,15 +5,13 @@ import cn.edu.guet.bean.User;
 import cn.edu.guet.dao.IUserDao;
 import cn.edu.guet.dao.RoleDao;
 import cn.edu.guet.dao.impl.RoleDaoImpl;
-import cn.edu.guet.mapper.UserMapper;
 import cn.edu.guet.dao.impl.UserDaoImpl;
 import cn.edu.guet.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 public class UserServiceImpl implements IUserService {
-    @Autowired
-    private UserMapper userMapper;
+
     @Override
     public User login(String username, String password) {
         IUserDao userDao = new UserDaoImpl();

@@ -1,32 +1,32 @@
-function f1(){
+function guetnews(){
     document.getElementById("guetnews").style.display = 'list-item';
     document.getElementById("schoolnews").style.display = 'none';
     document.getElementById("collegenews").style.display = 'none';
     document.getElementById("mediaguet").style.display = 'none';
 }
-function f2(){
+function schoolnews(){
     document.getElementById("guetnews").style.display = 'none';
     document.getElementById("schoolnews").style.display = 'list-item';
     document.getElementById("collegenews").style.display = 'none';
     document.getElementById("mediaguet").style.display = 'none';
 }
-function f3(){
+function collegenews(){
     document.getElementById("guetnews").style.display = 'none';
     document.getElementById("schoolnews").style.display = 'none';
     document.getElementById("collegenews").style.display = 'list-item';
     document.getElementById("mediaguet").style.display = 'none';
 }
-function f4(){
+function mediaguet(){
     document.getElementById("guetnews").style.display = 'none';
     document.getElementById("schoolnews").style.display = 'none';
     document.getElementById("collegenews").style.display = 'none';
     document.getElementById("mediaguet").style.display = 'list-item';
 }
-function f5(){
+function category_8(){
     document.getElementById("category_8").style.display = 'list-item';
     document.getElementById("category_10").style.display = 'none';
 }
-function f6(){
+function category_10(){
     document.getElementById("category_8").style.display = 'none';
     document.getElementById("category_10").style.display = 'list-item';
 }
